@@ -1,3 +1,4 @@
+import 'package:donation_flutter_app/pages/auth_pages/forget_password_page.dart';
 import 'package:donation_flutter_app/pages/auth_pages/signin_page.dart';
 import 'package:donation_flutter_app/pages/welcome_pages/welcome.dart';
 import 'package:get/get.dart';
@@ -17,4 +18,8 @@ appRoutes()=>[
     name: '/signin',
     page: () => const SignIn(),
   ),
+  GetPage(
+    name: '/forget_password',
+    page: () => const ForgetPassword(),
+  )
 ];
