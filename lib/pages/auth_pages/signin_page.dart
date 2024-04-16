@@ -29,13 +29,11 @@ class _SignInState extends State<SignIn> {
               Row(
                 children: [
                   Container(
-                    margin: const EdgeInsets.only(left: 30.0, top: 20.0),
-                    child: Image.asset('assets/images/auth/heart.png', width: 120),
-                    // child:  const Image(
-                    //   image: AssetImage("assets/heart.png"),
-                    //   width: 189,
-                    //   height: 83,
-                    // ),
+                    margin: const EdgeInsets.only(left: 10.0, top: 30.0),
+                    child: Image.asset(
+                      'assets/images/auth/heart.png',
+                      width: 100,
+                    ),
                   ),
                   Expanded(
                     child: Container(
@@ -159,14 +157,19 @@ class _SignInState extends State<SignIn> {
                                   fontSize: 18,
                                   color: Colors.black.withOpacity(0.5),
                                 ),
-                                contentPadding: const EdgeInsets.symmetric(vertical: 7, horizontal: 16),
+                                contentPadding: const EdgeInsets.symmetric(
+                                    vertical: 7, horizontal: 16),
                                 border: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(8.0),
-                                  borderSide: BorderSide(color: Colors.black.withOpacity(0.5)), // Set border color with opacity
+                                  borderSide: BorderSide(
+                                      color: Colors.black.withOpacity(
+                                          0.5)), // Set border color with opacity
                                 ),
                                 focusedBorder: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(8.0),
-                                  borderSide: BorderSide(color: Colors.black.withOpacity(0.5)), // Set border color with opacity
+                                  borderSide: BorderSide(
+                                      color: Colors.black.withOpacity(
+                                          0.5)), // Set border color with opacity
                                 ),
                               ),
                             ),
@@ -179,21 +182,22 @@ class _SignInState extends State<SignIn> {
                               obscureText: _isObscured,
                               decoration: InputDecoration(
                                 hintText: 'Password',
-                                hintStyle:  TextStyle(
+                                hintStyle: TextStyle(
                                   fontWeight: FontWeight.w500,
                                   fontSize: 18,
                                   color: Colors.black.withOpacity(0.5),
                                 ),
-                                contentPadding: const EdgeInsets.symmetric(vertical: 7, horizontal: 16),
+                                contentPadding: const EdgeInsets.symmetric(
+                                    vertical: 7, horizontal: 16),
                                 border: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(8.0),
-                                  borderSide: BorderSide(color: Colors.black.withOpacity(0.5)),
+                                  borderSide: BorderSide(
+                                      color: Colors.black.withOpacity(0.5)),
                                 ),
                                 focusedBorder: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(8.0),
-                                  borderSide: BorderSide(color: Colors.black.withOpacity(0.5)),
-
-
+                                  borderSide: BorderSide(
+                                      color: Colors.black.withOpacity(0.5)),
                                 ),
                                 suffixIcon: IconButton(
                                   icon: Icon(
@@ -231,7 +235,8 @@ class _SignInState extends State<SignIn> {
                                   style: TextStyle(
                                       fontSize: 16,
                                       fontWeight: FontWeight.w400,
-                                      color: Colors.black),
+                                      color: Colors.black,
+                                      fontFamily: "Poppins"),
                                 ),
                               ),
                             ],
@@ -264,24 +269,22 @@ class _SignInState extends State<SignIn> {
                                   fontWeight: FontWeight.w500),
                             ),
                           ),
-                          const SizedBox(height: 150),
-
+                          const SizedBox(height: 70),
                         ],
                       ),
                     ),
                     Container(
-
+                      width: 350,
                       child: Row(
                         children: [
                           const Text(
                             "Don't have an account?",
                             style: TextStyle(
-                              fontSize: 16,
+                              fontSize: 13,
                               fontWeight: FontWeight.w400,
                               color: Colors.black,
                             ),
                           ),
-
                           TextButton(
                             onPressed: () {
                               // Navigate to create account page or perform any desired action
@@ -289,7 +292,7 @@ class _SignInState extends State<SignIn> {
                             child: const Text(
                               'Create account',
                               style: TextStyle(
-                                fontSize: 16,
+                                fontSize: 13,
                                 fontWeight: FontWeight.w400,
                                 color: Colors.blue,
                               ),

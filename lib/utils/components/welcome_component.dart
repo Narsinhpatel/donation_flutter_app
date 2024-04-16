@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import '../welcome_data.dart';
 
@@ -9,27 +10,27 @@ class WelcomeComponent extends StatelessWidget {
   WelcomeComponent(
       {super.key, required this.currentPage, required this.pageController});
 
-  Widget RowProgress() {
+  Widget rowProgress() {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         currentPage == 0
             ? const Padding(
-              padding: EdgeInsets.all(4.0),
-              child: Icon(
+                padding: EdgeInsets.all(4.0),
+                child: Icon(
                   Icons.circle,
                   size: 10,
                   color: Colors.cyan,
                 ),
-            )
+              )
             : const Padding(
-              padding: EdgeInsets.all(4.0),
-              child: Icon(
+                padding: EdgeInsets.all(4.0),
+                child: Icon(
                   Icons.circle,
                   size: 10,
                   color: Colors.white38,
                 ),
-            ),
+              ),
         currentPage == 1
             ? const Icon(
                 Icons.circle,
@@ -43,21 +44,21 @@ class WelcomeComponent extends StatelessWidget {
               ),
         currentPage == 2
             ? const Padding(
-              padding: EdgeInsets.all(4.0),
-              child: Icon(
+                padding: EdgeInsets.all(4.0),
+                child: Icon(
                   Icons.circle,
                   size: 10,
                   color: Colors.cyan,
                 ),
-            )
+              )
             : const Padding(
-              padding: EdgeInsets.all(4.0),
-              child: Icon(
+                padding: EdgeInsets.all(4.0),
+                child: Icon(
                   Icons.circle,
                   size: 10,
                   color: Colors.white38,
                 ),
-            )
+              )
       ],
     );
   }
@@ -128,22 +129,20 @@ class WelcomeComponent extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
-                      currentPage != 0
-                          ? TextButton(
-                              onPressed: () {},
-                              child: const Text(
-                                "Skip",
-                                style: TextStyle(
-                                  fontSize: 20,
-                                  fontWeight: FontWeight.w800,
-                                  color: Colors.white,
-                                ),
-                              ),
-                            )
-                          : const SizedBox(
-                              width: 70,
-                            ),
-                      RowProgress(),
+                      TextButton(
+                        onPressed: () {
+                          Get.offAllNamed('/signin');
+                        },
+                        child: const Text(
+                          "Skip",
+                          style: TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.w800,
+                            color: Colors.white,
+                          ),
+                        ),
+                      ),
+                      rowProgress(),
                       TextButton(
                         onPressed: () {
                           if (currentPage < 2) {
@@ -151,6 +150,8 @@ class WelcomeComponent extends StatelessWidget {
                               duration: const Duration(milliseconds: 500),
                               curve: Curves.ease,
                             );
+                          } else {
+                            Get.offAllNamed('/signin');
                           }
                         },
                         child: const Text(
