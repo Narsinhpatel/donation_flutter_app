@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter/widgets.dart';
+import 'package:get/get.dart';
 
 class SignIn extends StatefulWidget {
   const SignIn({super.key});
@@ -229,7 +230,9 @@ class _SignInState extends State<SignIn> {
                                       fontWeight: FontWeight.w400,
                                       color: Colors.white),
                                 ),
-                                onPressed: () {},
+                                onPressed: () {
+                                  Get.toNamed('/forget_password');
+                                },
                                 child: const Text(
                                   'Forget Password',
                                   style: TextStyle(
