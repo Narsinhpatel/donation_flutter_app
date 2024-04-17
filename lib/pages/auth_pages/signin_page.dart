@@ -1,3 +1,4 @@
+import 'package:donation_flutter_app/utils/components/auth_component/auth_appbar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
@@ -24,45 +25,46 @@ class _SignInState extends State<SignIn> {
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: Colors.white,
+        appBar: const AuthAppBar(),
         body: SingleChildScrollView(
           child: Column(
             children: [
-              Row(
-                children: [
-                  Container(
-                    margin: const EdgeInsets.only(left: 10.0, top: 30.0),
-                    child: Image.asset(
-                      'assets/images/signup_welcome/heart.png',
-                      height: 70,
-                    ),
-                  ),
-                  Expanded(
-                    child: Container(
-                      margin: const EdgeInsets.only(
-                        top: 32.0,
-                        right: 32,
-                      ),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        children: [
-                          IconButton(
-                            padding: const EdgeInsets.all(10),
-                            onPressed: () {},
-                            icon: const Icon(Icons.arrow_drop_down_sharp),
-                          ),
-                          const Center(
-                            child: Text(
-                              "EN",
-                              style: TextStyle(
-                                  fontWeight: FontWeight.w400, fontSize: 14),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                ],
-              ),
+              // Row(
+              //   children: [
+              //     Container(
+              //       margin: const EdgeInsets.only(left: 10.0, top: 30.0),
+              //       child: Image.asset(
+              //         'assets/images/signup_welcome/heart.png',
+              //         height: 70,
+              //       ),
+              //     ),
+              //     Expanded(
+              //       child: Container(
+              //         margin: const EdgeInsets.only(
+              //           top: 32.0,
+              //           right: 32,
+              //         ),
+              //         child: Row(
+              //           mainAxisAlignment: MainAxisAlignment.end,
+              //           children: [
+              //             IconButton(
+              //               padding: const EdgeInsets.all(10),
+              //               onPressed: () {},
+              //               icon: const Icon(Icons.arrow_drop_down_sharp),
+              //             ),
+              //             const Center(
+              //               child: Text(
+              //                 "EN",
+              //                 style: TextStyle(
+              //                     fontWeight: FontWeight.w400, fontSize: 14),
+              //               ),
+              //             ),
+              //           ],
+              //         ),
+              //       ),
+              //     ),
+              //   ],
+              // ),
               const SizedBox(height: 40),
               const Center(
                   child: Text("Sign In",
@@ -272,36 +274,58 @@ class _SignInState extends State<SignIn> {
                         ],
                       ),
                     ),
-                    SizedBox(
-
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          const Text(
-                            "Don’t have an account?",
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        const Text(
+                          "Don’t have an account? ",
+                          style: TextStyle(
+                              color: Colors.black45, fontWeight: FontWeight.bold),
+                        ),
+                        GestureDetector(
+                          onTap: () {
+                            Get.toNamed('/signup_welcome');
+                          },
+                          child: const Text(
+                            "Create Account",
                             style: TextStyle(
-                              fontSize: 15,
-                              fontWeight: FontWeight.w400,
-                              color: Colors.black,
+                              color: Colors.blue,
+                              fontWeight: FontWeight.bold,
                             ),
                           ),
-                          GestureDetector(
-                            onTap: () {
-                              Get.toNamed("/signup");
-                            },
-                            child: const Text(
-                              ' Create Account',
-                              style: TextStyle(
-                                fontSize: 15,
-                                fontWeight: FontWeight.w400,
-                                color: Colors.blue,
-                              ),
-                            ),
-                          ),
-
-                        ],
-                      ),
-                    ),
+                        )
+                      ],
+                    )
+                    // SizedBox(
+                    //
+                    //   child: Row(
+                    //     mainAxisAlignment: MainAxisAlignment.center,
+                    //     children: [
+                    //       const Text(
+                    //         "Don’t have an account?",
+                    //         style: TextStyle(
+                    //           fontSize: 15,
+                    //           fontWeight: FontWeight.w400,
+                    //           color: Colors.black,
+                    //         ),
+                    //       ),
+                    //       GestureDetector(
+                    //         onTap: () {
+                    //           Get.toNamed("/signup_welcome");
+                    //         },
+                    //         child: const Text(
+                    //           ' Create Account',
+                    //           style: TextStyle(
+                    //             fontSize: 15,
+                    //             fontWeight: FontWeight.w400,
+                    //             color: Colors.blue,
+                    //           ),
+                    //         ),
+                    //       ),
+                    //
+                    //     ],
+                    //   ),
+                    // ),
                   ],
                 ),
               )

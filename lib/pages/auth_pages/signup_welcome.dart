@@ -1,3 +1,6 @@
+import 'dart:async';
+
+import 'package:donation_flutter_app/utils/components/auth_component/auth_appbar.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -29,41 +32,7 @@ class _SignupWelcomeState extends State<SignupWelcome> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-        leading: Padding(
-          padding: const EdgeInsets.fromLTRB(20, 0, 0, 0),
-          child: Image.asset(
-            'assets/images/signup_welcome/heart.png',
-            height: 80,
-            fit: BoxFit.cover,
-          ),
-        ),
-        actions: [
-          Padding(
-            padding: const EdgeInsets.fromLTRB(0, 0, 20, 0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                IconButton(
-                  padding: const EdgeInsets.all(10),
-                  onPressed: () {},
-                  icon: const Icon(Icons.arrow_drop_down_sharp),
-                ),
-                const Center(
-                  child: Text(
-                    "EN",
-                    style: TextStyle(
-                      fontWeight: FontWeight.w400,
-                      fontSize: 14,
-                    ),
-                  ),
-                ),
-              ],
-            ),
-          )
-        ],
-      ),
+      appBar: const AuthAppBar(),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(20.0),
@@ -106,6 +75,9 @@ class _SignupWelcomeState extends State<SignupWelcome> {
                       onTap: (){
                         setState(() {
                           selectedValue = 'Option ${index + 1}';
+                        });
+                        Timer(Duration(milliseconds: 200), () {
+                          Get.toNamed('/signup');
                         });
                       },
                       child: Container(

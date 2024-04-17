@@ -1,4 +1,4 @@
-import 'package:donation_flutter_app/utils/components/welcome_component.dart';
+import 'package:donation_flutter_app/utils/components/welcome_components/welcome_component.dart';
 import 'package:flutter/material.dart';
 
 class WelcomePage extends StatefulWidget {

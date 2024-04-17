@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../welcome_data.dart';
+import '../../app_static_data/welcome_data.dart';
 
 class WelcomeComponent extends StatelessWidget {
   int currentPage;

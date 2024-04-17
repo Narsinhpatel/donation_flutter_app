@@ -1,3 +1,4 @@
+import 'package:donation_flutter_app/utils/components/auth_component/auth_appbar.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -17,7 +18,6 @@ class _SignupState extends State<Signup> {
     '+91': 'assets/images/auth/flags/jorden_flag.png',
     '+44': 'assets/images/auth/flags/jorden_flag.png',
     '+81': 'assets/images/auth/flags/jorden_flag.png',
-
   };
 
 
@@ -31,48 +31,49 @@ class _SignupState extends State<Signup> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
+      appBar: const AuthAppBar(),
       body: SingleChildScrollView(
         child: Container(
           margin: const EdgeInsets.only(left: 20, right: 20),
           child: Column(
             children: [
-              Row(
-                children: [
-                  Container(
-                    margin: const EdgeInsets.only(left: 10.0, top: 30.0),
-                    child: Image.asset(
-                      'assets/images/signup_welcome/heart.png',
-                      height: 70,
-                    ),
-                  ),
-
-                  Expanded(
-                    child: Container(
-                      margin: const EdgeInsets.only(
-                        top: 32.0,
-                        right: 32,
-                      ),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        children: [
-                          IconButton(
-                            padding: const EdgeInsets.all(10),
-                            onPressed: () {},
-                            icon: const Icon(Icons.arrow_drop_down_sharp),
-                          ),
-                          const Center(
-                            child: Text(
-                              "EN",
-                              style: TextStyle(
-                                  fontWeight: FontWeight.w400, fontSize: 14),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                ],
-              ),
+              // Row(
+              //   children: [
+              //     Container(
+              //       margin: const EdgeInsets.only(left: 10.0, top: 30.0),
+              //       child: Image.asset(
+              //         'assets/images/signup_welcome/heart.png',
+              //         height: 70,
+              //       ),
+              //     ),
+              //
+              //     Expanded(
+              //       child: Container(
+              //         margin: const EdgeInsets.only(
+              //           top: 32.0,
+              //           right: 32,
+              //         ),
+              //         child: Row(
+              //           mainAxisAlignment: MainAxisAlignment.end,
+              //           children: [
+              //             IconButton(
+              //               padding: const EdgeInsets.all(10),
+              //               onPressed: () {},
+              //               icon: const Icon(Icons.arrow_drop_down_sharp),
+              //             ),
+              //             const Center(
+              //               child: Text(
+              //                 "EN",
+              //                 style: TextStyle(
+              //                     fontWeight: FontWeight.w400, fontSize: 14),
+              //               ),
+              //             ),
+              //           ],
+              //         ),
+              //       ),
+              //     ),
+              //   ],
+              // ),
               const SizedBox(height: 40),
               Container(
                 alignment: Alignment.topLeft,
