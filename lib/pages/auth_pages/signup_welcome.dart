@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class SignupWelcome extends StatefulWidget {
   const SignupWelcome({Key? key}) : super(key: key);
@@ -8,45 +9,69 @@ class SignupWelcome extends StatefulWidget {
 }
 
 class _SignupWelcomeState extends State<SignupWelcome> {
-  String selectedValue = 'Option 1'; // Move selectedValue into the state class
+  String selectedValue = '';
+  List<Map<String, dynamic>> userTypes = [
+    {
+      'type': "Supporter",
+      'description': "Access to the donations and all the general services"
+    },
+    {
+      'type': "Need Support",
+      'description': "All your personal information will be confidential"
+    },
+    {
+      'type': "Business Account",
+      'description': "This profile customized for the partners"
+    },
+  ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        leading: Padding(
+          padding: const EdgeInsets.fromLTRB(20, 0, 0, 0),
+          child: Image.asset(
+            'assets/images/signup_welcome/heart.png',
+            height: 80,
+            fit: BoxFit.cover,
+          ),
+        ),
+        actions: [
+          Padding(
+            padding: const EdgeInsets.fromLTRB(0, 0, 20, 0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                IconButton(
+                  padding: const EdgeInsets.all(10),
+                  onPressed: () {},
+                  icon: const Icon(Icons.arrow_drop_down_sharp),
+                ),
+                const Center(
+                  child: Text(
+                    "EN",
+                    style: TextStyle(
+                      fontWeight: FontWeight.w400,
+                      fontSize: 14,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          )
+        ],
+      ),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(20.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Image.asset(
-                    'assets/images/signup_welcome/heart.png',
-                    height: 70,
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      IconButton(
-                        padding: const EdgeInsets.all(10),
-                        onPressed: () {},
-                        icon: const Icon(Icons.arrow_drop_down_sharp),
-                      ),
-                      const Center(
-                        child: Text(
-                          "EN",
-                          style: TextStyle(
-                            fontWeight: FontWeight.w400,
-                            fontSize: 14,
-                          ),
-                        ),
-                      ),
-                    ],
-                  )
-                ],
+              const SizedBox(
+                height: 20,
               ),
               const Text(
                 "Welcome to\nHeartSprint",
@@ -55,6 +80,9 @@ class _SignupWelcomeState extends State<SignupWelcome> {
                   fontWeight: FontWeight.w900,
                 ),
               ),
+              const SizedBox(
+                height: 30,
+              ),
               const Text(
                 "You need to select profile type that you want to use in the app.",
                 style: TextStyle(
@@ -62,38 +90,99 @@ class _SignupWelcomeState extends State<SignupWelcome> {
                   fontWeight: FontWeight.w500,
                 ),
               ),
-              SizedBox(height: 20), // Add some space between the previous text and the list view
+              const SizedBox(height: 25),
               ListView.builder(
                 shrinkWrap: true,
-                physics: NeverScrollableScrollPhysics(),
-                itemCount: 3,
+                physics: const NeverScrollableScrollPhysics(),
+                itemCount: userTypes.length,
                 itemBuilder: (BuildContext context, int index) {
-                  return Container(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                      color: selectedValue == 'Option ${index + 1}'
-                          ? Colors.blue[50]
-                          : null,
+                  Map<String, dynamic> type = userTypes[index];
+                  return Padding(
+                    padding: const EdgeInsetsDirectional.symmetric(
+                      horizontal: 0,
+                      vertical: 4,
                     ),
-                    child: Padding(
-                      padding: const EdgeInsets.fromLTRB(0, 16, 0, 16),
-                      child: ListTile(
-                        title: Text('Option ${index + 1}'),
-                        subtitle: Text(
-                            'This is the subtitle for Option ${index + 1}'),
-                        trailing: Radio<String>(
-                          value: 'Option ${index + 1}',
-                          groupValue: selectedValue,
-                          onChanged: (value) {
-                            setState(() {
-                              selectedValue = value!;
-                            });
-                          },
+                    child: InkWell(
+                      onTap: (){
+                        setState(() {
+                          selectedValue = 'Option ${index + 1}';
+                        });
+                      },
+                      child: Container(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10),
+                          color: selectedValue == 'Option ${index + 1}'
+                              ? const Color.fromRGBO(31, 135, 142, 1)
+                              : const Color.fromRGBO(212, 245, 247, 0.5),
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsets.fromLTRB(0, 16, 0, 16),
+                          child: ListTile(
+                            title: Padding(
+                              padding: const EdgeInsets.only(bottom: 5),
+                              child: Text(
+                                type['type'],
+                                style: TextStyle(
+                                  color: selectedValue == 'Option ${index + 1}'
+                                      ? Colors.white
+                                      : Colors.black,
+                                  fontWeight: FontWeight.w600,
+                                ),
+                              ),
+                            ),
+                            subtitle: Padding(
+                              padding: const EdgeInsets.only(top: 5),
+                              child: Text(
+                                type['description'],
+                                style: TextStyle(
+                                    color: selectedValue == 'Option ${index + 1}'
+                                      ? Colors.white
+                                      : Colors.black,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                              ),
+                            ),
+                            trailing: Radio<String>(
+                              activeColor: Colors.white,
+                              value: 'Option ${index + 1}',
+                              groupValue: selectedValue,
+                              onChanged: (value) {
+                                setState(() {
+                                  selectedValue = value!;
+                                });
+                              },
+                            ),
+                          ),
                         ),
                       ),
                     ),
                   );
                 },
+              ),
+              const SizedBox(
+                height: 30,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const Text(
+                    "If you have an account? ",
+                    style: TextStyle(
+                        color: Colors.black45, fontWeight: FontWeight.bold),
+                  ),
+                  GestureDetector(
+                    onTap: () {
+                      Get.toNamed('/signin');
+                    },
+                    child: const Text(
+                      "Sign in",
+                      style: TextStyle(
+                        color: Colors.blue,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  )
+                ],
               )
             ],
           ),

@@ -131,7 +131,7 @@ class WelcomeComponent extends StatelessWidget {
                     children: <Widget>[
                       TextButton(
                         onPressed: () {
-                          Get.offAllNamed('/signin');
+                          Get.offAllNamed('/signup_welcome');
                         },
                         child: const Text(
                           "Skip",
@@ -151,7 +151,7 @@ class WelcomeComponent extends StatelessWidget {
                               curve: Curves.ease,
                             );
                           } else {
-                            Get.offAllNamed('/signin');
+                            Get.offAllNamed('/signup_welcome');
                           }
                         },
                         child: const Text(
