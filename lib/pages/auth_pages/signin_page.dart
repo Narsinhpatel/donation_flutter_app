@@ -32,8 +32,8 @@ class _SignInState extends State<SignIn> {
                   Container(
                     margin: const EdgeInsets.only(left: 10.0, top: 30.0),
                     child: Image.asset(
-                      'assets/images/auth/heart.png',
-                      width: 100,
+                      'assets/images/signup_welcome/heart.png',
+                      height: 70,
                     ),
                   ),
                   Expanded(
@@ -223,25 +223,21 @@ class _SignInState extends State<SignIn> {
                           Row(
                             mainAxisAlignment: MainAxisAlignment.end,
                             children: [
-                              TextButton(
-                                style: TextButton.styleFrom(
-                                  textStyle: const TextStyle(
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.w400,
-                                      color: Colors.white),
-                                ),
-                                onPressed: () {
+                              GestureDetector(
+                                onTap: () {
                                   Get.toNamed('/forget_password');
                                 },
                                 child: const Text(
                                   'Forget Password',
                                   style: TextStyle(
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.w400,
-                                      color: Colors.black,
-                                      fontFamily: "Poppins"),
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.w400,
+                                    color: Colors.black,
+                                    fontFamily: "Poppins",
+                                  ),
                                 ),
                               ),
+
                             ],
                           ),
                           const SizedBox(height: 30),
@@ -272,35 +268,37 @@ class _SignInState extends State<SignIn> {
                                   fontWeight: FontWeight.w500),
                             ),
                           ),
-                          const SizedBox(height: 70),
+                          const SizedBox(height: 30),
                         ],
                       ),
                     ),
-                    Container(
-                      width: 350,
+                    SizedBox(
+
                       child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           const Text(
-                            "Don't have an account?",
+                            "Don’t have an account?",
                             style: TextStyle(
-                              fontSize: 13,
+                              fontSize: 15,
                               fontWeight: FontWeight.w400,
                               color: Colors.black,
                             ),
                           ),
-                          TextButton(
-                            onPressed: () {
-                              // Navigate to create account page or perform any desired action
+                          GestureDetector(
+                            onTap: () {
+                              Get.toNamed("/signup");
                             },
                             child: const Text(
-                              'Create account',
+                              ' Create Account',
                               style: TextStyle(
-                                fontSize: 13,
+                                fontSize: 15,
                                 fontWeight: FontWeight.w400,
                                 color: Colors.blue,
                               ),
                             ),
                           ),
+
                         ],
                       ),
                     ),

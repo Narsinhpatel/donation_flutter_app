@@ -21,7 +21,10 @@ class _ForgetPasswordState extends State<ForgetPassword> {
                 Container(
                   margin: const EdgeInsets.only(left: 10.0, top: 30.0),
                   child:
-                      Image.asset('assets/images/auth/heart.png', width: 120),
+                  Image.asset(
+                    'assets/images/signup_welcome/heart.png',
+                    height: 70,
+                  ),
                 ),
                 Expanded(
                   child: Container(
