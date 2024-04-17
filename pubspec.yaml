@@ -65,6 +65,7 @@ flutter:
     - assets/images/auth/
     - assets/images/auth/flags/
     - assets/images/signup_welcome/
+    - assets/images/home/
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
