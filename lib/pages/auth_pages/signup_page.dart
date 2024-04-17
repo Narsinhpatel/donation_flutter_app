@@ -33,15 +33,15 @@ class _SignupState extends State<Signup> {
     });
   }
 
-  String? validateName(String value) {
-    if (value.isEmpty) {
+  String? validateName(String ?value) {
+    if (value == null || value.isEmpty) {
       return 'Please enter your name';
     }
     return null;
   }
 
-  String? validateEmail(String value) {
-    if (value.isEmpty) {
+  String? validateEmail(String ?value) {
+    if (value == null || value.isEmpty) {
       return 'Please enter your email';
     } else if (!GetUtils.isEmail(value)) {
       return 'Please enter a valid email';
@@ -49,8 +49,8 @@ class _SignupState extends State<Signup> {
     return null;
   }
 
-  String? validateConfirmEmail(String value) {
-    if (value.isEmpty) {
+  String? validateConfirmEmail(String ?value) {
+    if (value == null || value.isEmpty) {
       return 'Please confirm your email';
     } else if (value != emailController.text) {
       return 'Emails do not match';
@@ -58,8 +58,8 @@ class _SignupState extends State<Signup> {
     return null;
   }
 
-  String? validatePassword(String value) {
-    if (value.isEmpty) {
+  String? validatePassword(String ?value) {
+    if (value == null || value.isEmpty) {
       return 'Please enter your password';
     } else if (value.length < 6) {
       return 'Password must be at least 6 characters long';
@@ -67,8 +67,8 @@ class _SignupState extends State<Signup> {
     return null;
   }
 
-  String? validateMobileNumber(String value) {
-    if (value.isEmpty) {
+  String? validateMobileNumber(String ?value) {
+    if (value == null || value.isEmpty) {
       return 'Please enter your mobile number';
     }
     return null;
@@ -119,8 +119,9 @@ class _SignupState extends State<Signup> {
                               color: Colors.black.withOpacity(0.5)),
                         ),
                       ),
-                    //  validator: validateName,
+                      validator: validateName,
                     ),
+
                     const SizedBox(height: 10),
                     TextFormField(
                       controller: emailController,
@@ -144,7 +145,7 @@ class _SignupState extends State<Signup> {
                               color: Colors.black.withOpacity(0.5)),
                         ),
                       ),
-                    //  validator: validateEmail,
+                     validator: validateEmail,
                     ),
                     const SizedBox(height: 10),
                     TextFormField(
@@ -169,7 +170,7 @@ class _SignupState extends State<Signup> {
                               color: Colors.black.withOpacity(0.5)),
                         ),
                       ),
-                    //  validator: validateConfirmEmail,
+                      validator: validateConfirmEmail,
                     ),
                     const SizedBox(height: 10),
                     TextFormField(
@@ -204,7 +205,7 @@ class _SignupState extends State<Signup> {
                           onPressed: toggleVisibility,
                         ),
                       ),
-                    //  validator: validatePassword,
+                     validator: validatePassword,
                     ),
                     const SizedBox(height: 10),
                     Row(
@@ -292,7 +293,7 @@ class _SignupState extends State<Signup> {
                                         color: Colors.black.withOpacity(0.5)),
                                   ),
                                 ),
-                             //   validator: validateMobileNumber,
+
                               ),
                             ),
                           ),

@@ -80,7 +80,7 @@ class _SupportiveCommunityState extends State<SupportiveCommunity> {
                 onPressed: () {
                   if (_formKey.currentState!.validate()) {
 
-                    Get.toNamed("/supportive_community");
+                    Get.toNamed("/child_support");
                   }
                 },
                 style: ElevatedButton.styleFrom(

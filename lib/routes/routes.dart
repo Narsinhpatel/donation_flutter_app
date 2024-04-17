@@ -1,3 +1,4 @@
+import 'package:donation_flutter_app/pages/auth_pages/child_support_page.dart';
 import 'package:donation_flutter_app/pages/auth_pages/forget_password_page.dart';
 import 'package:donation_flutter_app/pages/auth_pages/signin_page.dart';
 import 'package:donation_flutter_app/pages/auth_pages/signup_page.dart';
@@ -36,6 +37,10 @@ appRoutes()=>[
   GetPage(
     name: '/supportive_community',
     page: () => const SupportiveCommunity(),
+  ),
+  GetPage(
+    name: '/child_support',
+    page: () => const ChildSupport(),
   ),
 
 ];
