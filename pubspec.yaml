@@ -63,6 +63,7 @@ flutter:
   assets:
     - assets/images/welcome/
     - assets/images/auth/
+    - assets/images/auth/flags/
     - assets/images/signup_welcome/
   #   - images/a_dot_ham.jpeg
 
