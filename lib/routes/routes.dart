@@ -1,7 +1,9 @@
+import 'package:donation_flutter_app/pages/auth_pages/child_support_page.dart';
 import 'package:donation_flutter_app/pages/auth_pages/forget_password_page.dart';
 import 'package:donation_flutter_app/pages/auth_pages/signin_page.dart';
 import 'package:donation_flutter_app/pages/auth_pages/signup_page.dart';
 import 'package:donation_flutter_app/pages/auth_pages/signup_welcome.dart';
+import 'package:donation_flutter_app/pages/auth_pages/supportive_comm_page.dart';
 import 'package:donation_flutter_app/pages/home_pages/home_page.dart';
 import 'package:donation_flutter_app/pages/welcome_pages/welcome.dart';
 import 'package:get/get.dart';
@@ -32,6 +34,14 @@ appRoutes()=>[
   GetPage(
     name: '/signup',
     page: () => const Signup(),
+  ),
+  GetPage(
+    name: '/supportive_community',
+    page: () => const SupportiveCommunity(),
+  ),
+  GetPage(
+    name: '/child_support',
+    page: () => const ChildSupport(),
   ),
   GetPage(
     name: '/home',
