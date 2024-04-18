@@ -92,7 +92,7 @@ class _ChildSupportState extends State<ChildSupport> {
                   onPressed: () {
                     if (_formKey.currentState!.validate()) {
 
-                      Get.toNamed("/child_support");
+                      Get.toNamed("/home");
                     }
                   },
                   style: ElevatedButton.styleFrom(

@@ -1,5 +1,6 @@
 import 'package:donation_flutter_app/utils/app_static_data/image_strings.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class TitlePageCardsList extends StatelessWidget {
   TitlePageCardsList({super.key});
@@ -42,40 +43,46 @@ class TitlePageCardsList extends StatelessWidget {
           padding: index == 0
               ? const EdgeInsets.fromLTRB(20, 0, 8, 0)
               : const EdgeInsets.symmetric(horizontal: 8),
-          child: SizedBox(
-            height: 290,
-            width: 320,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                ClipRRect(
-                  borderRadius: BorderRadius.circular(8),
-                  child: Image.asset(
-                    card['img'],
-                    fit: BoxFit.cover,
-                    height: 180,
-                    width: 320,
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.fromLTRB(0, 8, 0, 14),
-                  child: Text(
-                    card['title'],
-                    style: const TextStyle(
-                      fontSize: 13,
-                      fontWeight: FontWeight.w600,
-                      color: Color.fromRGBO(31, 113, 118, 1),
+          child: InkWell(
+            onTap: (){
+              Get.toNamed('/donation');
+            },
+            child: SizedBox(
+              height: 290,
+              width: 320,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  ClipRRect(
+                    borderRadius: BorderRadius.circular(8),
+                    child: Image.asset(
+                      card['img'],
+                      fit: BoxFit.cover,
+                      height: 180,
+                      width: 320,
                     ),
                   ),
-                ),
-                Text(
-                  card['subtitle'],
-                  style: const TextStyle(
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(0, 8, 0, 14),
+                    child: Text(
+                      card['title'],
+                      style: const TextStyle(
+                        fontSize: 13,
+                        fontWeight: FontWeight.w600,
+                        color: Color.fromRGBO(31, 113, 118, 1),
+                      ),
+                    ),
+                  ),
+                  Text(
+                    card['subtitle'],
+                    style: const TextStyle(
                       fontSize: 14,
                       fontWeight: FontWeight.w600,
-                      color: Colors.black87),
-                ),
-              ],
+                      color: Colors.black87,
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
         );
