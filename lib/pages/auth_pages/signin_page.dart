@@ -29,42 +29,7 @@ class _SignInState extends State<SignIn> {
         body: SingleChildScrollView(
           child: Column(
             children: [
-              // Row(
-              //   children: [
-              //     Container(
-              //       margin: const EdgeInsets.only(left: 10.0, top: 30.0),
-              //       child: Image.asset(
-              //         'assets/images/signup_welcome/heart.png',
-              //         height: 70,
-              //       ),
-              //     ),
-              //     Expanded(
-              //       child: Container(
-              //         margin: const EdgeInsets.only(
-              //           top: 32.0,
-              //           right: 32,
-              //         ),
-              //         child: Row(
-              //           mainAxisAlignment: MainAxisAlignment.end,
-              //           children: [
-              //             IconButton(
-              //               padding: const EdgeInsets.all(10),
-              //               onPressed: () {},
-              //               icon: const Icon(Icons.arrow_drop_down_sharp),
-              //             ),
-              //             const Center(
-              //               child: Text(
-              //                 "EN",
-              //                 style: TextStyle(
-              //                     fontWeight: FontWeight.w400, fontSize: 14),
-              //               ),
-              //             ),
-              //           ],
-              //         ),
-              //       ),
-              //     ),
-              //   ],
-              // ),
+
               const SizedBox(height: 40),
               const Center(
                   child: Text("Sign In",
@@ -246,20 +211,16 @@ class _SignInState extends State<SignIn> {
                           ElevatedButton(
                             onPressed: () {
                               if (Form.of(context).validate()) {
-                                // Form is valid, do something with the data
                                 print('Form is valid');
                               }
                             },
                             style: ElevatedButton.styleFrom(
                               backgroundColor: const Color(0xFF1F878E),
-                              // Set background color to #1F878E
                               minimumSize: const Size(370, 50),
-                              // Set minimum size to 370x50
                               padding: const EdgeInsets.all(10),
-                              // Set padding to 10px
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(
-                                    8), // Set border radius to 8px
+                                    8),
                               ),
                             ),
                             child: const Text(

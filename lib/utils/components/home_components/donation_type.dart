@@ -1,13 +1,14 @@
+import 'package:donation_flutter_app/utils/app_static_data/image_strings.dart';
 import 'package:flutter/material.dart';
 
 class DonationType extends StatelessWidget {
   DonationType({super.key});
 
   List<Map<String, dynamic>> donationTypes = [
-    {'title': "Health", "icon": 'assets/images/home/health.png'},
-    {'title': "Education", "icon": 'assets/images/home/education.png'},
-    {'title': "Animals", "icon": 'assets/images/home/animal.png'},
-    {'title': "View All", "icon": 'assets/images/home/viewall.png'},
+    {'title': "Health", "icon": ImageString.HEALTH_LOGO_IMG},
+    {'title': "Education", "icon": ImageString.EDUCATION_LOGO_IMG},
+    {'title': "Animals", "icon": ImageString.ANIMAL_LOGO_IMG},
+    {'title': "View All", "icon": ImageString.VIEWALL_LOGO_IMG},
   ];
 
   @override
