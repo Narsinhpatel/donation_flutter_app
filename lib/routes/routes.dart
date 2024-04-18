@@ -6,6 +6,11 @@ import 'package:donation_flutter_app/pages/auth_pages/signup_welcome.dart';
 import 'package:donation_flutter_app/pages/auth_pages/supportive_comm_page.dart';
 import 'package:donation_flutter_app/pages/home_pages/home_body.dart';
 import 'package:donation_flutter_app/pages/home_pages/home_page.dart';
+import 'package:donation_flutter_app/pages/home_pages/inbox_page.dart';
+import 'package:donation_flutter_app/pages/welcome_pages/welcome.dart';
+import 'package:get/get.dart';
+
+import '../pages/auth_pages/signin_second_option_page.dart';
 import 'package:donation_flutter_app/pages/home_pages/settings_page.dart';
 import 'package:donation_flutter_app/pages/welcome_pages/welcome.dart';
 import 'package:get/get.dart';
@@ -40,6 +45,10 @@ appRoutes()=>[
     page: () => const Signup(),
   ),
   GetPage(
+    name: '/signup_second',
+    page: () => const SignupSecond(),
+  ),
+  GetPage(
     name: '/supportive_community',
     page: () => const SupportiveCommunity(),
   ),
@@ -60,5 +69,9 @@ appRoutes()=>[
     page: () => const SettingsPage(),
     transition: Transition.leftToRight,
     transitionDuration: const Duration(milliseconds: 300),
+  ),
+  GetPage(
+    name: '/inbox',
+    page: () => const Inbox(),
   ),
 ];

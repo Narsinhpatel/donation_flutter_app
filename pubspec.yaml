@@ -30,6 +30,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  intl: ^0.17.0
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -67,6 +68,7 @@ flutter:
     - assets/images/auth/flags/
     - assets/images/signup_welcome/
     - assets/images/home/
+    - assets/images/inbox/
     - assets/images/carousel/
     - assets/icons/settings/
   #   - images/a_dot_ham.jpeg

@@ -1,4 +1,5 @@
 import 'package:donation_flutter_app/pages/auth_pages/signin_page.dart';
+import 'package:donation_flutter_app/pages/home_pages/inbox_page.dart';
 import 'package:donation_flutter_app/pages/welcome_pages/welcome.dart';
 import 'package:donation_flutter_app/routes/routes.dart';
 import 'package:flutter/material.dart';
@@ -17,14 +18,14 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
-      initialRoute: '/home',
+      initialRoute: '/welcome',
       getPages: appRoutes(),
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.white),
         useMaterial3: true,
         fontFamily: "Poppins",
       ),
-      // home: const WelcomePage(),
+      //home: const Inbox(),
     );
   }
 }
