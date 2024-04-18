@@ -1,3 +1,4 @@
+import 'package:donation_flutter_app/utils/app_static_data/image_strings.dart';
 import 'package:flutter/material.dart';
 
 class TitlePageCardsList extends StatelessWidget {
@@ -5,25 +6,25 @@ class TitlePageCardsList extends StatelessWidget {
 
   List<Map<String, dynamic>> cardsDataList = [
     {
-      'img': "assets/images/home/title-card-1.jpg",
+      'img': ImageString.TITLE_CARD_IMG_1,
       'title': "Orphans",
       'subtitle':
           "Fundraising campaign for an orphanage. We will sponsor 150 orphans"
     },
     {
-      'img': "assets/images/home/title-card-2.jpg",
+      'img': ImageString.TITLE_CARD_IMG_2,
       'title': "Education",
       'subtitle':
           "Orphan sponsorship, we will collect donations to sponsor the study of 200 orphans in class 2023"
     },
     {
-      'img': "assets/images/home/title-card-3.jpg",
+      'img': ImageString.TITLE_CARD_IMG_3,
       'title': "Donations",
       'subtitle':
           "Donations campaign to care for earthquake orphans in Syria and the outskirts of Türkiye"
     },
     {
-      'img': "assets/images/home/title-card-4.jpg",
+      'img': ImageString.TITLE_CARD_IMG_4,
       'title': "Education",
       'subtitle':
           "A donation campaign to end the university requirements for students who are limited to paying for universities."
@@ -38,10 +39,12 @@ class TitlePageCardsList extends StatelessWidget {
       itemBuilder: (context, index) {
         Map<String, dynamic> card = cardsDataList[index];
         return Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 3),
+          padding: index == 0
+              ? const EdgeInsets.fromLTRB(20, 0, 8, 0)
+              : const EdgeInsets.symmetric(horizontal: 8),
           child: SizedBox(
             height: 290,
-            width: 310,
+            width: 320,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -51,7 +54,7 @@ class TitlePageCardsList extends StatelessWidget {
                     card['img'],
                     fit: BoxFit.cover,
                     height: 180,
-                    width: 300,
+                    width: 320,
                   ),
                 ),
                 Padding(
@@ -68,10 +71,9 @@ class TitlePageCardsList extends StatelessWidget {
                 Text(
                   card['subtitle'],
                   style: const TextStyle(
-                    fontSize: 14,
-                    fontWeight: FontWeight.w600,
-                    color: Colors.black87
-                  ),
+                      fontSize: 14,
+                      fontWeight: FontWeight.w600,
+                      color: Colors.black87),
                 ),
               ],
             ),

@@ -16,42 +16,53 @@ class HomePage extends StatelessWidget {
           )
         ],
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const Text(
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const Padding(
+            padding: EdgeInsets.symmetric(horizontal: 20),
+            child: Text(
               "Welcome, Mahmoud",
               style: TextStyle(
                 fontSize: 24,
                 fontWeight: FontWeight.w700,
               ),
             ),
-            const Text(
+          ),
+          const Padding(
+            padding: EdgeInsets.symmetric(horizontal: 20),
+            child: Text(
               "What do you wanna dante today ?",
               style: TextStyle(
                 fontSize: 14,
                 fontWeight: FontWeight.w400,
               ),
             ),
-            Container(
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16),
+            child: Container(
               height: 120,
               child: DonationType(),
             ),
-            Container(
-              height: 300,
-              child: TitlePageCardsList(),
-            ),
-            Text(
+          ),
+          Container(
+            padding: EdgeInsets.zero,
+            height: 300,
+            child: TitlePageCardsList(),
+          ),
+          const Padding(
+            padding: EdgeInsets.symmetric(horizontal: 20),
+            child: Text(
               "Nearby Cases",
               style: TextStyle(
                 fontWeight: FontWeight.w800,
                 fontSize: 20,
               ),
-            )
-          ],
-        ),
+            ),
+          ),
+
+        ],
       ),
     );
   }
