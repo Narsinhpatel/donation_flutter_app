@@ -33,14 +33,14 @@ class _SignupState extends State<Signup> {
     });
   }
 
-  String? validateName(String ?value) {
+  String? validateName(String? value) {
     if (value == null || value.isEmpty) {
       return 'Please enter your name';
     }
     return null;
   }
 
-  String? validateEmail(String ?value) {
+  String? validateEmail(String? value) {
     if (value == null || value.isEmpty) {
       return 'Please enter your email';
     } else if (!GetUtils.isEmail(value)) {
@@ -49,7 +49,7 @@ class _SignupState extends State<Signup> {
     return null;
   }
 
-  String? validateConfirmEmail(String ?value) {
+  String? validateConfirmEmail(String? value) {
     if (value == null || value.isEmpty) {
       return 'Please confirm your email';
     } else if (value != emailController.text) {
@@ -58,7 +58,7 @@ class _SignupState extends State<Signup> {
     return null;
   }
 
-  String? validatePassword(String ?value) {
+  String? validatePassword(String? value) {
     if (value == null || value.isEmpty) {
       return 'Please enter your password';
     } else if (value.length < 6) {
@@ -67,7 +67,7 @@ class _SignupState extends State<Signup> {
     return null;
   }
 
-  String? validateMobileNumber(String ?value) {
+  String? validateMobileNumber(String? value) {
     if (value == null || value.isEmpty) {
       return 'Please enter your mobile number';
     }
@@ -83,7 +83,7 @@ class _SignupState extends State<Signup> {
         child: Container(
           margin: const EdgeInsets.only(left: 20, right: 20),
           child: Form(
-              key: _formKey,
+            key: _formKey,
             child: Column(
               children: [
                 const SizedBox(height: 40),
@@ -110,18 +110,17 @@ class _SignupState extends State<Signup> {
                             vertical: 7, horizontal: 16),
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(8.0),
-                          borderSide: BorderSide(
-                              color: Colors.black.withOpacity(0.5)),
+                          borderSide:
+                              BorderSide(color: Colors.black.withOpacity(0.5)),
                         ),
                         focusedBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(8.0),
-                          borderSide: BorderSide(
-                              color: Colors.black.withOpacity(0.5)),
+                          borderSide:
+                              BorderSide(color: Colors.black.withOpacity(0.5)),
                         ),
                       ),
                       validator: validateName,
                     ),
-
                     const SizedBox(height: 10),
                     TextFormField(
                       controller: emailController,
@@ -136,16 +135,16 @@ class _SignupState extends State<Signup> {
                             vertical: 7, horizontal: 16),
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(8.0),
-                          borderSide: BorderSide(
-                              color: Colors.black.withOpacity(0.5)),
+                          borderSide:
+                              BorderSide(color: Colors.black.withOpacity(0.5)),
                         ),
                         focusedBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(8.0),
-                          borderSide: BorderSide(
-                              color: Colors.black.withOpacity(0.5)),
+                          borderSide:
+                              BorderSide(color: Colors.black.withOpacity(0.5)),
                         ),
                       ),
-                     validator: validateEmail,
+                      validator: validateEmail,
                     ),
                     const SizedBox(height: 10),
                     TextFormField(
@@ -161,13 +160,13 @@ class _SignupState extends State<Signup> {
                             vertical: 7, horizontal: 16),
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(8.0),
-                          borderSide: BorderSide(
-                              color: Colors.black.withOpacity(0.5)),
+                          borderSide:
+                              BorderSide(color: Colors.black.withOpacity(0.5)),
                         ),
                         focusedBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(8.0),
-                          borderSide: BorderSide(
-                              color: Colors.black.withOpacity(0.5)),
+                          borderSide:
+                              BorderSide(color: Colors.black.withOpacity(0.5)),
                         ),
                       ),
                       validator: validateConfirmEmail,
@@ -187,13 +186,13 @@ class _SignupState extends State<Signup> {
                             vertical: 7, horizontal: 16),
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(8.0),
-                          borderSide: BorderSide(
-                              color: Colors.black.withOpacity(0.5)),
+                          borderSide:
+                              BorderSide(color: Colors.black.withOpacity(0.5)),
                         ),
                         focusedBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(8.0),
-                          borderSide: BorderSide(
-                              color: Colors.black.withOpacity(0.5)),
+                          borderSide:
+                              BorderSide(color: Colors.black.withOpacity(0.5)),
                         ),
                         suffixIcon: IconButton(
                           icon: Icon(
@@ -205,7 +204,7 @@ class _SignupState extends State<Signup> {
                           onPressed: toggleVisibility,
                         ),
                       ),
-                     validator: validatePassword,
+                      validator: validatePassword,
                     ),
                     const SizedBox(height: 10),
                     Row(
@@ -242,7 +241,8 @@ class _SignupState extends State<Signup> {
                                 });
                               },
                               underline: SizedBox(), // Remove underline
-                              items: countryFlags.keys.map((String countryCode) {
+                              items:
+                                  countryFlags.keys.map((String countryCode) {
                                 return DropdownMenuItem<String>(
                                   value: countryCode,
                                   child: Row(
@@ -293,7 +293,6 @@ class _SignupState extends State<Signup> {
                                         color: Colors.black.withOpacity(0.5)),
                                   ),
                                 ),
-
                               ),
                             ),
                           ),
@@ -318,9 +317,10 @@ class _SignupState extends State<Signup> {
                       child: const Text(
                         'Continue',
                         style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 20,
-                            fontWeight: FontWeight.w500),
+                          color: Colors.white,
+                          fontSize: 20,
+                          fontWeight: FontWeight.w500,
+                        ),
                       ),
                     ),
                   ],

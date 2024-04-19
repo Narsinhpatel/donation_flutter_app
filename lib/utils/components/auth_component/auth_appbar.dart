@@ -9,6 +9,7 @@ class AuthAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
+      scrolledUnderElevation: 0,
       backgroundColor: Colors.white,
       leading: Padding(
         padding: const EdgeInsets.fromLTRB(20, 0, 0, 0),
