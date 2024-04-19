@@ -24,7 +24,7 @@ class HomePage extends StatelessWidget {
               padding: EdgeInsets.symmetric(horizontal: 20),
               child: Obx(
                   ()=>Text(
-                    userController.user.value.userName!,
+                    userController.user.value.userName??"Default User",
                     style: TextStyle(
                       fontSize: 24,
                       fontWeight: FontWeight.w700,
