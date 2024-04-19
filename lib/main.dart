@@ -1,5 +1,6 @@
 import 'package:donation_flutter_app/pages/auth_pages/signin_page.dart';
 import 'package:donation_flutter_app/pages/home_pages/inbox_page.dart';
+import 'package:donation_flutter_app/pages/home_pages/notification_page.dart';
 import 'package:donation_flutter_app/pages/welcome_pages/welcome.dart';
 import 'package:donation_flutter_app/routes/routes.dart';
 import 'package:flutter/material.dart';
@@ -25,7 +26,7 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
         fontFamily: "Poppins",
       ),
-      //home: const Inbox(),
+     // home: const Notification(),
     );
   }
 }

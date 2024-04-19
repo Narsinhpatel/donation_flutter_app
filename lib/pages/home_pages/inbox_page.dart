@@ -12,21 +12,25 @@ class Inbox extends StatelessWidget {
     List<Map<String, dynamic>> inboxItems = [
       {
         'title': 'Care Orgnization',
-        'subtitle': 'Thank you, I hop your help is useful for others, We are always open...',
+        'subtitle':
+        'Thank you, I hop your help is useful for others, We are always open...',
         'imagePath': 'assets/images/inbox/image1.png',
-
+        'time': DateTime.now().subtract(Duration(hours: 2)),
       },
       {
         'title': 'UNICEF',
-        'subtitle': 'Thank you, I hop your help is useful for others, We are always open...',
+        'subtitle':
+        'Thank you, I hop your help is useful for others, We are always open...',
         'imagePath': 'assets/images/inbox/image2.png',
+        'time': DateTime.now().subtract(Duration(hours: 5)),
       },
       {
         'title': 'TUA Orphanage',
-        'subtitle': 'Thank you, I hop your help is useful for others, We are always open...',
+        'subtitle':
+        'Thank you, I hop your help is useful for others, We are always open...',
         'imagePath': 'assets/images/inbox/image3.png',
+        'time': DateTime.now().subtract(Duration(hours: 10)),
       },
-
     ];
 
     return Scaffold(
@@ -54,7 +58,7 @@ class Inbox extends StatelessWidget {
                     leading: Image.asset(inboxItems[index]['imagePath']),
                     title: Text(inboxItems[index]['title'],style: const TextStyle(fontSize: 16,fontWeight: FontWeight.w500),),
                     subtitle: Text(inboxItems[index]['subtitle'],style: const TextStyle(fontSize: 14,fontWeight: FontWeight.w400)),
-                    trailing: Container(width: 50, alignment: Alignment.topCenter,child: Text(DateFormat.Hm().format( DateTime.now()),style: const TextStyle(fontSize: 14,fontWeight: FontWeight.w400))),
+                    trailing: Container(width: 50, alignment: Alignment.topCenter,child: Text(DateFormat('hh:mm a').format(inboxItems[index]['time']),style: const TextStyle(fontSize: 14,fontWeight: FontWeight.w400))),
 
 
                     onTap: () {
