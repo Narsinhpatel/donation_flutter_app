@@ -22,9 +22,9 @@ class _SignupSecondState extends State<SignupSecond> {
   };
 
   final TextEditingController nameController = TextEditingController();
-  final TextEditingController emailController = TextEditingController();
-  final TextEditingController confirmEmailController = TextEditingController();
-  final TextEditingController passwordController = TextEditingController();
+  final TextEditingController ageController = TextEditingController();
+
+  final TextEditingController addressesController = TextEditingController();
   final TextEditingController mobileNumberController = TextEditingController();
 
   TextEditingController _descriptionController = TextEditingController();
@@ -44,32 +44,21 @@ class _SignupSecondState extends State<SignupSecond> {
     return null;
   }
 
-  String? validateEmail(String ?value) {
+  String? validateAge(String ?value) {
     if (value == null || value.isEmpty) {
-      return 'Please enter your email';
-    } else if (!GetUtils.isEmail(value)) {
-      return 'Please enter a valid email';
+      return 'Please enter your age';
     }
     return null;
   }
 
-  String? validateConfirmEmail(String ?value) {
+  String? validateAddress(String ?value) {
     if (value == null || value.isEmpty) {
-      return 'Please confirm your email';
-    } else if (value != emailController.text) {
-      return 'Emails do not match';
+      return 'Please Select address';
     }
     return null;
   }
 
-  String? validatePassword(String ?value) {
-    if (value == null || value.isEmpty) {
-      return 'Please enter your password';
-    } else if (value.length < 6) {
-      return 'Password must be at least 6 characters long';
-    }
-    return null;
-  }
+
 
   String? validateMobileNumber(String ?value) {
     if (value == null || value.isEmpty) {
@@ -128,9 +117,9 @@ class _SignupSecondState extends State<SignupSecond> {
 
                     const SizedBox(height: 10),
                     TextFormField(
-                      controller: emailController,
+                      controller: ageController,
                       decoration: InputDecoration(
-                        hintText: "Email",
+                        hintText: "Age",
                         hintStyle: TextStyle(
                           fontWeight: FontWeight.w500,
                           fontSize: 18,
@@ -149,39 +138,16 @@ class _SignupSecondState extends State<SignupSecond> {
                               color: Colors.black.withOpacity(0.5)),
                         ),
                       ),
-                      validator: validateEmail,
+                      validator: validateAge,
                     ),
+
+
+
                     const SizedBox(height: 10),
                     TextFormField(
-                      controller: confirmEmailController,
+                      controller: addressesController,
                       decoration: InputDecoration(
-                        hintText: "Confirm Email",
-                        hintStyle: TextStyle(
-                          fontWeight: FontWeight.w500,
-                          fontSize: 18,
-                          color: Colors.black.withOpacity(0.5),
-                        ),
-                        contentPadding: const EdgeInsets.symmetric(
-                            vertical: 7, horizontal: 16),
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(8.0),
-                          borderSide: BorderSide(
-                              color: Colors.black.withOpacity(0.5)),
-                        ),
-                        focusedBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(8.0),
-                          borderSide: BorderSide(
-                              color: Colors.black.withOpacity(0.5)),
-                        ),
-                      ),
-                      validator: validateConfirmEmail,
-                    ),
-                    const SizedBox(height: 10),
-                    TextFormField(
-                      controller: passwordController,
-                      obscureText: isObscured,
-                      decoration: InputDecoration(
-                        hintText: 'Password',
+                        hintText: "Addresses",
                         hintStyle: TextStyle(
                           fontWeight: FontWeight.w500,
                           fontSize: 18,
@@ -200,32 +166,15 @@ class _SignupSecondState extends State<SignupSecond> {
                               color: Colors.black.withOpacity(0.5)),
                         ),
                         suffixIcon: IconButton(
-                          icon: Icon(
-                            isObscured
-                                ? Icons.visibility
-                                : Icons.visibility_off,
-                            color: const Color(0xFF2A2A2A).withOpacity(0.5),
-                          ),
-                          onPressed: toggleVisibility,
+                          onPressed: () {
+                            // Handle IconButton onPressed event here
+                          },
+                          icon: Icon(Icons.place,color: Colors.black.withOpacity(0.5),),
                         ),
                       ),
-                      validator: validatePassword,
+                      validator: validateAddress,
                     ),
                     const SizedBox(height: 10),
-                    Row(
-                      children: [
-                        Checkbox(
-                          value: showMobileNumberField,
-                          onChanged: (newValue) {
-                            setState(() {
-                              showMobileNumberField = newValue!;
-                            });
-                          },
-                        ),
-                        const Text('Use mobile number instead of email'),
-                      ],
-                    ),
-                    if (showMobileNumberField)
                       Row(
                         children: [
                           Container(
@@ -271,11 +220,13 @@ class _SignupSecondState extends State<SignupSecond> {
                               }).toList(),
                             ),
                           ),
+
                           const SizedBox(width: 10),
                           Expanded(
                             child: SizedBox(
                               height: 44,
-                              child: TextField(
+                              child: TextFormField(
+
                                 controller: mobileNumberController,
                                 decoration: InputDecoration(
                                   hintText: "Mobile Number",
@@ -297,7 +248,7 @@ class _SignupSecondState extends State<SignupSecond> {
                                         color: Colors.black.withOpacity(0.5)),
                                   ),
                                 ),
-
+                             //   validator: validateMobileNumber,
                               ),
                             ),
                           ),
