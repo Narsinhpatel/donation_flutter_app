@@ -73,7 +73,7 @@ appRoutes()=>[
   ),
   GetPage(
     name: '/inbox',
-    page: () => const Inbox(),
+    page: () => const InboxPage(),
   ),
   GetPage(
     name: '/notification',
