@@ -7,6 +7,7 @@ import 'package:donation_flutter_app/pages/auth_pages/supportive_comm_page.dart'
 import 'package:donation_flutter_app/pages/home_pages/home_body.dart';
 import 'package:donation_flutter_app/pages/home_pages/home_page.dart';
 import 'package:donation_flutter_app/pages/home_pages/inbox_page.dart';
+import 'package:donation_flutter_app/pages/home_pages/notification_page.dart';
 import 'package:donation_flutter_app/pages/welcome_pages/welcome.dart';
 import 'package:get/get.dart';
 
@@ -74,4 +75,8 @@ appRoutes()=>[
     name: '/inbox',
     page: () => const InboxPage(),
   ),
+  GetPage(
+    name: '/notification',
+    page: () => const Notification(),
+  )
 ];
