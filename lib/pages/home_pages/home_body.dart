@@ -1,3 +1,5 @@
+import 'package:donation_flutter_app/controllers/user_controller.dart';
+import 'package:donation_flutter_app/models/user/user.dart';
 import 'package:donation_flutter_app/pages/home_pages/home_page.dart';
 import 'package:donation_flutter_app/utils/app_static_data/image_strings.dart';
 import 'package:flutter/cupertino.dart';
@@ -15,11 +17,13 @@ class _HomeBodyState extends State<HomeBody> {
   int selectedIndex = 0;
 
   List<Widget> widgetList = [
-    const HomePage(),
+    HomePage(),
   ];
 
   @override
   Widget build(BuildContext context) {
+    final UserController userController = Get.put(UserController());
+
     return Scaffold(
 
 
@@ -46,7 +50,7 @@ class _HomeBodyState extends State<HomeBody> {
                       const CircleAvatar(
                         radius: 40,
                         backgroundImage:
-                            AssetImage(ImageString.WELCOME_GRANDMA_IMG),
+                            AssetImage(ImageString.DEFAULT_USER_IMG),
                       ),
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -55,13 +59,13 @@ class _HomeBodyState extends State<HomeBody> {
                           Container(
                             width: 170,
                             padding: const EdgeInsets.only(left: 8),
-                            child: const Text(
-                              "Mahmoud Tayyem",
+                            child: Obx(() => Text(
+                              userController.user.value.userName!,
                               style: TextStyle(
                                 fontWeight: FontWeight.w600,
                                 fontSize: 16,
                               ),
-                            ),
+                            ),)
                           ),
                           GestureDetector(
                             onTap: () {},

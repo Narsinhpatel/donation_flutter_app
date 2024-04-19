@@ -76,8 +76,13 @@ class _SignupWelcomeState extends State<SignupWelcome> {
                         setState(() {
                           selectedValue = 'Option ${index + 1}';
                         });
+
                         Timer(Duration(milliseconds: 200), () {
-                          Get.toNamed('/signup');
+                          if(selectedValue == 'Option 1'){
+                            Get.toNamed('/signup');
+                          }else{
+                            Get.toNamed('/signup_second');
+                          }
                         });
                       },
                       child: Container(

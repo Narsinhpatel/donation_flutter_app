@@ -1,6 +1,9 @@
+import 'package:donation_flutter_app/controllers/user_controller.dart';
 import 'package:donation_flutter_app/utils/components/auth_component/auth_appbar.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
+import '../../models/user/user.dart';
 
 class Signup extends StatefulWidget {
   const Signup({Key? key}) : super(key: key);
@@ -26,6 +29,8 @@ class _SignupState extends State<Signup> {
   final TextEditingController passwordController = TextEditingController();
   final TextEditingController mobileNumberController = TextEditingController();
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+
+  final UserController userController  = Get.put(UserController());
 
   void toggleVisibility() {
     setState(() {
@@ -72,6 +77,11 @@ class _SignupState extends State<Signup> {
       return 'Please enter your mobile number';
     }
     return null;
+  }
+
+  void saveUser(User newUser){
+    userController.setUser(newUser);
+    Get.toNamed("/supportive_community");
   }
 
   @override
@@ -302,8 +312,12 @@ class _SignupState extends State<Signup> {
                     ElevatedButton(
                       onPressed: () {
                         if (_formKey.currentState!.validate()) {
-                          // Proceed with your logic here
-                          Get.toNamed("/supportive_community");
+                          final newUser = User(
+                            userName: nameController.text.toString(),
+                            emailId: emailController.text.toString(),
+                            password: passwordController.text.toString(),
+                          );
+                          saveUser(newUser);
                         }
                       },
                       style: ElevatedButton.styleFrom(
