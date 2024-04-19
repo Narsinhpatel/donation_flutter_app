@@ -1,10 +1,14 @@
+import 'package:donation_flutter_app/controllers/user_controller.dart';
 import 'package:donation_flutter_app/utils/components/home_components/donation_type.dart';
 import 'package:donation_flutter_app/utils/components/home_components/nearby_cases.dart';
 import 'package:donation_flutter_app/utils/components/home_components/title_page_list.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class HomePage extends StatelessWidget {
-  const HomePage({super.key});
+  HomePage({super.key});
+
+  final UserController userController = Get.put(UserController());
 
   @override
   Widget build(BuildContext context) {
@@ -16,14 +20,16 @@ class HomePage extends StatelessWidget {
             const SizedBox(
               height: 10,
             ),
-            const Padding(
+            Padding(
               padding: EdgeInsets.symmetric(horizontal: 20),
-              child: Text(
-                "Welcome, Mahmoud",
-                style: TextStyle(
-                  fontSize: 24,
-                  fontWeight: FontWeight.w700,
-                ),
+              child: Obx(
+                  ()=>Text(
+                    userController.user.value.userName!,
+                    style: TextStyle(
+                      fontSize: 24,
+                      fontWeight: FontWeight.w700,
+                    ),
+                  ),
               ),
             ),
             const Padding(

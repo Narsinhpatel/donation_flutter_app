@@ -16,6 +16,7 @@ class ImageString{
   static const String SETTINGS_LOCK_ICON = "assets/icons/settings/lock.png";
   static const String SETTINGS_CHAIR_ICON = "assets/icons/settings/chair.png";
   static const String SETTINGS_USERS_ICON = "assets/icons/settings/users.png";
+  static const String DEFAULT_USER_IMG = "assets/images/home/user.png";
 
 
 
