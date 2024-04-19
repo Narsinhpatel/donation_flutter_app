@@ -78,6 +78,7 @@ class _SignupWelcomeState extends State<SignupWelcome> {
                         });
 
                         Timer(Duration(milliseconds: 200), () {
+                          Get.toNamed('/signup_second');
                           if(selectedValue == 'Option 1'){
                             Get.toNamed('/signup');
                           }else{
