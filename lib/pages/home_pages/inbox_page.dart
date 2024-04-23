@@ -4,8 +4,8 @@ import 'package:donation_flutter_app/utils/components/home_components/home_appba
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
-class Inbox extends StatelessWidget {
-  const Inbox({super.key});
+class InboxPage extends StatelessWidget {
+  const InboxPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +35,6 @@ class Inbox extends StatelessWidget {
 
     return Scaffold(
 
-      appBar: const HomeAppBar(),
       body: Container(
         padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
         child: Column(

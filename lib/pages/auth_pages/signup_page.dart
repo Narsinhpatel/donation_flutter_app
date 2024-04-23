@@ -81,6 +81,7 @@ class _SignupState extends State<Signup> {
 
   void saveUser(User newUser){
     userController.setUser(newUser);
+    print(newUser.userName);
     Get.toNamed("/supportive_community");
   }
 

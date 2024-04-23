@@ -9,9 +9,11 @@ class HomePage extends StatelessWidget {
   HomePage({super.key});
 
   final UserController userController = Get.put(UserController());
+  // final UserController userController = Get.find<UserController>();
 
   @override
   Widget build(BuildContext context) {
+    print(userController.user.value.userName);
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
@@ -21,11 +23,12 @@ class HomePage extends StatelessWidget {
               height: 10,
             ),
             Padding(
-              padding: EdgeInsets.symmetric(horizontal: 20),
+              padding: const EdgeInsets.symmetric(horizontal: 20),
               child: Obx(
+
                   ()=>Text(
                     userController.user.value.userName??"Default User",
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontSize: 24,
                       fontWeight: FontWeight.w700,
                     ),

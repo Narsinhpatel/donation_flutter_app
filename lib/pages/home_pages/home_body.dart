@@ -1,13 +1,10 @@
-import 'package:donation_flutter_app/controllers/user_controller.dart';
-import 'package:donation_flutter_app/models/user/user.dart';
 import 'package:donation_flutter_app/pages/home_pages/home_page.dart';
 import 'package:donation_flutter_app/pages/home_pages/inbox_page.dart';
 import 'package:donation_flutter_app/pages/home_pages/notification_page.dart';
-import 'package:donation_flutter_app/utils/app_static_data/image_strings.dart';
+import 'package:donation_flutter_app/utils/components/home_components/home_appbar.dart';
 import 'package:donation_flutter_app/utils/components/home_drawer.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
 class HomeBody extends StatefulWidget {
   const HomeBody({super.key});
@@ -21,7 +18,7 @@ class _HomeBodyState extends State<HomeBody> {
 
   List<Widget> widgetList = [
     HomePage(),
-    NotificationPage(),
+    const NotificationPage(),
     const InboxPage(),
   ];
 
@@ -39,7 +36,7 @@ class _HomeBodyState extends State<HomeBody> {
                 )
               ],
             )
-          : AppBar(),
+          : const HomeAppBar(),
       drawer: selectedIndex != 0 ? null : const HomeDrawer(),
       body: widgetList[selectedIndex],
       bottomNavigationBar: SizedBox(

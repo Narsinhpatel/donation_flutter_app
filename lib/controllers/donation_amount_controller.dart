@@ -9,14 +9,8 @@ import 'package:get/get.dart';
    *
    * @created by : Vedant Rana
    */
-class BottomBarController extends GetxController{
-  var selectesIndex = RxInt;
-
-  @override
-  void onInit() {
-    super.onInit();
-    selectesIndex = 0 as Type;
-  }
+class DonationAmountController extends GetxController{
+  RxString selectedAmount = RxString('');
 
   /*
    * @purpose :
@@ -28,7 +22,7 @@ class BottomBarController extends GetxController{
    *
    * @created by : Vedant Rana
    */
-  void setSelectedIndex(int index){
-    selectesIndex = index as Type;
+  void setSelectedAmount(String selectedAmountByChip){
+    selectedAmount.value = selectedAmountByChip;
   }
 }

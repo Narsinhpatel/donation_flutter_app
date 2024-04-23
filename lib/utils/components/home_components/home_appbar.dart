@@ -10,7 +10,6 @@ class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      backgroundColor: Colors.white,
       leading: Padding(
         padding: const EdgeInsets.fromLTRB(10, 0, 0, 0),
         child:  IconButton(
@@ -20,8 +19,6 @@ class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
           icon: const Icon(Icons.arrow_back,color: Colors.black,),
         ),
       ),
-
-
     );
   }
 }

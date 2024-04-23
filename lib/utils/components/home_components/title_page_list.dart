@@ -45,7 +45,7 @@ class TitlePageCardsList extends StatelessWidget {
               : const EdgeInsets.symmetric(horizontal: 8),
           child: InkWell(
             onTap: (){
-              Get.toNamed('/donation');
+              Get.toNamed('/donation-details');
             },
             child: SizedBox(
               height: 290,

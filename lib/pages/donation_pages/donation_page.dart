@@ -19,11 +19,9 @@ class _DonationPageState extends State<DonationPage> {
       body: Column(
         children: [
           Container(
-            height: 600,
-            decoration: BoxDecoration(
-            color: Colors.black
-          ),
-            child: CarouselImages(),
+            height: 0,
+            // child: CarouselImages(),
+            color: Colors.black,
           ),
         ],
       ),
