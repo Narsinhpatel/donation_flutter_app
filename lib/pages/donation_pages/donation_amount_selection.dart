@@ -36,7 +36,7 @@ class DonationSelectionPage extends StatelessWidget {
               height: calculateHeight(0.45, context),
               child: Stack(
                 children: [
-                  CarouselImages(),
+                  const CarouselImages(),
                   Positioned(
                     bottom: 0,
                     left: 0,
@@ -44,8 +44,8 @@ class DonationSelectionPage extends StatelessWidget {
                       width: calculateWidth(1, context),
                       // Match parent Stack width
                       height: calculateHeight(0.02, context),
-                      decoration: const BoxDecoration(
-                        color: Colors.white,
+                      decoration: BoxDecoration(
+                        color: Color.fromRGBO(250, 253, 255, 1.0),
                         borderRadius: BorderRadius.only(
                           topLeft: Radius.circular(50),
                           topRight: Radius.circular(50),
@@ -62,7 +62,7 @@ class DonationSelectionPage extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   SizedBox(
-                    height: calculateHeight(0.03, context),
+                    height: calculateHeight(0.005, context),
                   ),
                   const Text(
                     "How much wanna Donate ?",
@@ -115,7 +115,7 @@ class DonationSelectionPage extends StatelessWidget {
                     ),
                   ),
                   SizedBox(
-                    height: calculateHeight(0.035, context),
+                    height: calculateHeight(0.045, context),
                   ),
                   ElevatedButton(
                     onPressed: () {

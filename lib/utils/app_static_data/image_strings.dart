@@ -26,6 +26,7 @@ class ImageString{
 
   static const String DONATION_TARGET_ICON = "assets/icons/donation/vector.png";
   static const String DONATION_REQUIRED_ICON = "assets/icons/donation/group.png";
+  static const String DONATION_CHECK_ICON = "assets/icons/donation/check-sign.png";
 
 
 

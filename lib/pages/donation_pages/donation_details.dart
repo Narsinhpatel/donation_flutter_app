@@ -30,7 +30,9 @@ class DonationDetails extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  SizedBox(height: calculateHeight(0.03, context),),
+                  SizedBox(
+                    height: calculateHeight(0.03, context),
+                  ),
                   const Text(
                     "Education",
                     style: TextStyle(
@@ -38,7 +40,9 @@ class DonationDetails extends StatelessWidget {
                       fontWeight: FontWeight.w600,
                     ),
                   ),
-                  SizedBox(height: calculateHeight(0.02, context),),
+                  SizedBox(
+                    height: calculateHeight(0.02, context),
+                  ),
                   Text(
                     "Let's help the orphans in jordan to have a better education",
                     style: TextStyle(
@@ -47,7 +51,9 @@ class DonationDetails extends StatelessWidget {
                       color: Colors.black.withOpacity(0.8),
                     ),
                   ),
-                  SizedBox(height: calculateHeight(0.035, context),),
+                  SizedBox(
+                    height: calculateHeight(0.035, context),
+                  ),
                   SizedBox(
                     width: calculateWidth(0.9, context),
                     child: Row(
@@ -81,9 +87,10 @@ class DonationDetails extends StatelessWidget {
                                   Text(
                                     "Target Amount",
                                     style: TextStyle(
-                                        fontSize: 12,
-                                        fontWeight: FontWeight.w600,
-                                        color: Colors.black.withOpacity(0.4)),
+                                      fontSize: 12,
+                                      fontWeight: FontWeight.w600,
+                                      color: Colors.black.withOpacity(0.4),
+                                    ),
                                   ),
                                   const SizedBox(
                                     height: 5,
@@ -150,7 +157,9 @@ class DonationDetails extends StatelessWidget {
                       ],
                     ),
                   ),
-                  SizedBox(height: calculateHeight(0.035, context),),
+                  SizedBox(
+                    height: calculateHeight(0.035, context),
+                  ),
                   Row(
                     children: [
                       Text(
@@ -171,7 +180,9 @@ class DonationDetails extends StatelessWidget {
                       ),
                     ],
                   ),
-                  SizedBox(height: calculateHeight(0.02, context),),
+                  SizedBox(
+                    height: calculateHeight(0.02, context),
+                  ),
                   Text(
                     "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronicLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronicLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic",
                     style: TextStyle(

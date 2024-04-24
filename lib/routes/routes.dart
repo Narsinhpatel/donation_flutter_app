@@ -19,6 +19,7 @@ import 'package:get/get.dart';
 
 import '../pages/donation_pages/donation_amount_selection.dart';
 import '../pages/donation_pages/donation_page.dart';
+import '../pages/donation_pages/thank_you_page.dart';
 
 /*
  * @purpose :
@@ -88,5 +89,9 @@ appRoutes()=>[
   GetPage(
     name: '/donation-details',
     page: () => const DonationDetails(),
+  ),
+  GetPage(
+    name: '/thank-you',
+    page: () => const ThankYouPage(),
   )
 ];
