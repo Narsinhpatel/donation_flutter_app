@@ -8,6 +8,9 @@ import 'package:donation_flutter_app/pages/home_pages/home_body.dart';
 import 'package:donation_flutter_app/pages/home_pages/home_page.dart';
 import 'package:donation_flutter_app/pages/home_pages/inbox_page.dart';
 import 'package:donation_flutter_app/pages/home_pages/notification_page.dart';
+import 'package:donation_flutter_app/pages/payment_pages/confirm_page.dart';
+import 'package:donation_flutter_app/pages/payment_pages/otp_page.dart';
+import 'package:donation_flutter_app/pages/payment_pages/paymant_page.dart';
 import 'package:donation_flutter_app/pages/welcome_pages/welcome.dart';
 import 'package:get/get.dart';
 
@@ -78,5 +81,17 @@ appRoutes()=>[
   GetPage(
     name: '/notification',
     page: () => const Notification(),
+  ),
+  GetPage(
+    name: '/payment_methods',
+    page: () => const PaymentMethods(),
+  ),
+  GetPage(
+    name: '/confirm_payment',
+    page: () => const ConfirmPayment(),
+  ),
+  GetPage(
+    name: '/received_otp',
+    page: () => const ReceivedOtp(),
   )
 ];
