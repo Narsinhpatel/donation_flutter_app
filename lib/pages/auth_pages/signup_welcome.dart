@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:donation_flutter_app/controllers/signup_options_controller.dart';
 import 'package:donation_flutter_app/utils/components/auth_component/auth_appbar.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -12,6 +13,8 @@ class SignupWelcome extends StatefulWidget {
 }
 
 class _SignupWelcomeState extends State<SignupWelcome> {
+  final SignUpOptionController signUpOptionController =
+      Get.put(SignUpOptionController());
   String selectedValue = '';
   List<Map<String, dynamic>> userTypes = [
     {
@@ -30,6 +33,7 @@ class _SignupWelcomeState extends State<SignupWelcome> {
 
   @override
   Widget build(BuildContext context) {
+    selectedValue = signUpOptionController.currentSignUpOption.value;
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: const AuthAppBar(),
@@ -72,16 +76,18 @@ class _SignupWelcomeState extends State<SignupWelcome> {
                       vertical: 4,
                     ),
                     child: InkWell(
-                      onTap: (){
+                      onTap: () {
                         setState(() {
                           selectedValue = 'Option ${index + 1}';
+                          signUpOptionController
+                              .setCurrentSignUpOption(selectedValue);
                         });
 
                         Timer(Duration(milliseconds: 200), () {
-                          Get.toNamed('/signup_second');
-                          if(selectedValue == 'Option 1'){
+                          // Get.toNamed('/signup_second');
+                          if (selectedValue == 'Option 1') {
                             Get.toNamed('/signup');
-                          }else{
+                          } else {
                             Get.toNamed('/signup_second');
                           }
                         });
@@ -113,7 +119,7 @@ class _SignupWelcomeState extends State<SignupWelcome> {
                               child: Text(
                                 type['description'],
                                 style: TextStyle(
-                                    color: selectedValue == 'Option ${index + 1}'
+                                  color: selectedValue == 'Option ${index + 1}'
                                       ? Colors.white
                                       : Colors.black,
                                   fontWeight: FontWeight.w500,

@@ -1,3 +1,9 @@
+
+/*
+ * Model Class for Users
+ *
+ * @created by : Vedant Rana
+ */
 class User {
   int? userId;
   String? userName;
@@ -5,6 +11,7 @@ class User {
   String? password;
 
   User(
+      //constructor to create Category by assigning all the required value to the instance
       {this.userId = 1,
        this.userName,
        this.emailId,

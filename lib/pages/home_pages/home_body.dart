@@ -1,10 +1,10 @@
-import 'package:donation_flutter_app/controllers/user_controller.dart';
-import 'package:donation_flutter_app/models/user/user.dart';
 import 'package:donation_flutter_app/pages/home_pages/home_page.dart';
-import 'package:donation_flutter_app/utils/app_static_data/image_strings.dart';
+import 'package:donation_flutter_app/pages/home_pages/inbox_page.dart';
+import 'package:donation_flutter_app/pages/home_pages/notification_page.dart';
+import 'package:donation_flutter_app/utils/components/home_components/home_appbar.dart';
+import 'package:donation_flutter_app/utils/components/home_drawer.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
 class HomeBody extends StatefulWidget {
   const HomeBody({super.key});
@@ -18,171 +18,26 @@ class _HomeBodyState extends State<HomeBody> {
 
   List<Widget> widgetList = [
     HomePage(),
+    const NotificationPage(),
+    const InboxPage(),
   ];
 
   @override
   Widget build(BuildContext context) {
-    final UserController userController = Get.put(UserController());
-
     return Scaffold(
-
-
-      appBar: AppBar(
-        scrolledUnderElevation: 0.0,
-        shadowColor: Colors.transparent,
-        elevation: 0,
-        actions: [
-          IconButton(
-            onPressed: () {},
-            icon: const Icon(Icons.search),
-          )
-        ],
-      ),
-      drawer: Drawer(
-        child: Stack(
-          children: [
-            ListView(
-              children: [
-                DrawerHeader(
-                  child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      const CircleAvatar(
-                        radius: 40,
-                        backgroundImage:
-                            AssetImage(ImageString.DEFAULT_USER_IMG),
-                      ),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Container(
-                            width: 170,
-                            padding: const EdgeInsets.only(left: 8),
-                            child: Obx(() => Text(
-                              userController.user.value.userName!,
-                              style: TextStyle(
-                                fontWeight: FontWeight.w600,
-                                fontSize: 16,
-                              ),
-                            ),)
-                          ),
-                          GestureDetector(
-                            onTap: () {},
-                            child: Container(
-                              padding: const EdgeInsets.fromLTRB(8, 8, 0, 0),
-                              child: const Text(
-                                "View Profile",
-                                style: TextStyle(
-                                  fontWeight: FontWeight.w600,
-                                  fontSize: 12,
-                                  color: Colors.black54,
-                                ),
-                              ),
-                            ),
-                          )
-                        ],
-                      )
-                    ],
-                  ),
-                ),
-                ListTile(
-                  title: const Text(
-                    'Explore',
-                    style: TextStyle(
-                      fontWeight: FontWeight.w600,
-                      color: Color.fromRGBO(31, 135, 142, 1),
-                    ),
-                  ),
-                  onTap: () {},
-                ),
-                ListTile(
-                  title: const Text(
-                    'Donations',
-                    style: TextStyle(
-                      fontWeight: FontWeight.w600,
-                      color: Colors.black54,
-                    ),
-                  ),
-                  onTap: () {},
-                ),
-                ListTile(
-                  title: const Text(
-                    'Settings',
-                    style: TextStyle(
-                      fontWeight: FontWeight.w600,
-                      color: Colors.black54,
-                    ),
-                  ),
-                  onTap: () {
-                    Get.toNamed('/settings');
-                  },
-                ),
-                SizedBox(
-                  height: 40,
-                ),
-                ListTile(
-                  title: const Text(
-                    'Contact us',
-                    style: TextStyle(
-                      fontWeight: FontWeight.w600,
-                      color: Colors.black54,
-                    ),
-                  ),
-                  onTap: () {},
-                ),
-                ListTile(
-                  title: const Text(
-                    'About',
-                    style: TextStyle(
-                      fontWeight: FontWeight.w600,
-                      color: Colors.black54,
-                    ),
-                  ),
-                  onTap: () {},
-                ),
-                ListTile(
-                  title: const Text(
-                    'Help',
-                    style: TextStyle(
-                      fontWeight: FontWeight.w600,
-                      color: Colors.black54,
-                    ),
-                  ),
-                  onTap: () {},
-                ),
-                ListTile(
-                  title: const Text(
-                    'Log out',
-                    style: TextStyle(
-                      fontWeight: FontWeight.w600,
-                      color: Colors.black54,
-                    ),
-                  ),
-                  onTap: () {},
-                ),
+      appBar: selectedIndex == 0
+          ? AppBar(
+              scrolledUnderElevation: 0.0,
+              elevation: 0,
+              actions: [
+                IconButton(
+                  onPressed: () {},
+                  icon: const Icon(Icons.search),
+                )
               ],
-            ),
-            Positioned(
-              right: 5,
-              top: 35,
-              child: Container(
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(50),
-                  color: Colors.black12.withOpacity(0.1),
-
-                ),
-                child: IconButton(
-                  onPressed: () {
-                    Navigator.of(context).pop();
-                  },
-                  icon: Icon(Icons.close),
-                ),
-              ),
             )
-          ],
-        ),
-      ),
+          : const HomeAppBar(),
+      drawer: selectedIndex != 0 ? null : const HomeDrawer(),
       body: widgetList[selectedIndex],
       bottomNavigationBar: SizedBox(
         height: 70,
@@ -192,37 +47,44 @@ class _HomeBodyState extends State<HomeBody> {
               selectedIndex = value;
             });
           },
-          selectedIconTheme:
-              const IconThemeData(color: Color.fromRGBO(31, 135, 142, 1)),
           type: BottomNavigationBarType.fixed,
           showSelectedLabels: false,
           showUnselectedLabels: false,
+          selectedItemColor: const Color.fromRGBO(31, 135, 142, 1),
           items: [
-            const BottomNavigationBarItem(
+            BottomNavigationBarItem(
               icon: Icon(
                 Icons.home,
-                color: Colors.black,
+                color: selectedIndex != 0
+                    ? Colors.black.withOpacity(0.4)
+                    : const Color.fromRGBO(31, 135, 142, 1),
               ),
               label: "Home",
             ),
-            const BottomNavigationBarItem(
+            BottomNavigationBarItem(
               icon: Icon(
                 Icons.notifications,
-                color: Colors.black,
+                color: selectedIndex != 1
+                    ? Colors.black.withOpacity(0.4)
+                    : const Color.fromRGBO(31, 135, 142, 1),
               ),
-              label: "HOme",
+              label: "Home",
             ),
-            const BottomNavigationBarItem(
+            BottomNavigationBarItem(
               icon: Icon(
                 Icons.mail,
-                color: Colors.black,
+                color: selectedIndex != 2
+                    ? Colors.black.withOpacity(0.4)
+                    : const Color.fromRGBO(31, 135, 142, 1),
               ),
               label: "HOme",
             ),
-            const BottomNavigationBarItem(
+            BottomNavigationBarItem(
               icon: Icon(
                 Icons.person,
-                color: Colors.black,
+                color: selectedIndex != 3
+                    ? Colors.black.withOpacity(0.4)
+                    : const Color.fromRGBO(31, 135, 142, 1),
               ),
               label: "HOme",
             ),

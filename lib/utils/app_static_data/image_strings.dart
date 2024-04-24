@@ -24,5 +24,10 @@ class ImageString{
   static const String CAROUSEL_IMG_2 = "assets/images/carousel/multi-student.jpg";
   static const String CAROUSEL_IMG_3 = "assets/images/carousel/child-eat.jpg";
 
+  static const String DONATION_TARGET_ICON = "assets/icons/donation/vector.png";
+  static const String DONATION_REQUIRED_ICON = "assets/icons/donation/group.png";
+  static const String DONATION_CHECK_ICON = "assets/icons/donation/check-sign.png";
+
+
 
 }

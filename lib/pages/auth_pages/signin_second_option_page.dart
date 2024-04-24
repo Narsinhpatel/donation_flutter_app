@@ -1,6 +1,9 @@
+import 'package:donation_flutter_app/controllers/user_controller.dart';
 import 'package:donation_flutter_app/utils/components/auth_component/auth_appbar.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
+import '../../models/user/user.dart';
 
 class SignupSecond extends StatefulWidget {
   const SignupSecond({Key? key}) : super(key: key);
@@ -28,6 +31,7 @@ class _SignupSecondState extends State<SignupSecond> {
   final TextEditingController mobileNumberController = TextEditingController();
 
   TextEditingController _descriptionController = TextEditingController();
+  final UserController userController = Get.put(UserController());
 
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
@@ -65,6 +69,11 @@ class _SignupSecondState extends State<SignupSecond> {
       return 'Please enter your mobile number';
     }
     return null;
+  }
+
+  void saveUser(User newUser){
+    userController.setUser(newUser);
+    Get.toNamed("/supportive_community");
   }
 
   @override
@@ -248,7 +257,7 @@ class _SignupSecondState extends State<SignupSecond> {
                                         color: Colors.black.withOpacity(0.5)),
                                   ),
                                 ),
-                             //   validator: validateMobileNumber,
+                               // validator: validateMobileNumber,
                               ),
                             ),
                           ),
@@ -362,8 +371,10 @@ class _SignupSecondState extends State<SignupSecond> {
                     ElevatedButton(
                       onPressed: () {
                         if (_formKey.currentState!.validate()) {
-                          // Proceed with your logic here
-                          Get.toNamed("/supportive_community");
+                          final User newUser = User(
+                            userName: nameController.text.toString(),
+                          );
+                          saveUser(newUser);
                         }
                       },
                       style: ElevatedButton.styleFrom(

@@ -98,7 +98,9 @@ class _SupportiveCommunityState extends State<SupportiveCommunity> {
                 ),
                 const SizedBox(height: 20),
                 TextButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Get.offAllNamed("/home");
+                  },
                   child: const Text(
                     'Skip',
                     style: TextStyle(
