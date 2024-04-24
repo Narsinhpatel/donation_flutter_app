@@ -119,7 +119,7 @@ class _ReceivedOtpState extends State<ReceivedOtp> {
             const SizedBox(height: 30),
             ElevatedButton(
               onPressed: () {
-                Get.toNamed("/child_support");
+                Get.toNamed("/thank-you-page");
               },
               style: ElevatedButton.styleFrom(
                 backgroundColor: const Color(0xFF1F878E),

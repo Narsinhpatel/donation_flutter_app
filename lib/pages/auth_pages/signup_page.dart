@@ -1,9 +1,12 @@
 import 'package:donation_flutter_app/controllers/user_controller.dart';
 import 'package:donation_flutter_app/utils/components/auth_component/auth_appbar.dart';
+import 'package:donation_flutter_app/utils/components/auth_component/singin_text.dart';
+import 'package:donation_flutter_app/utils/components/home_components/progress_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../models/user/user.dart';
+import '../../utils/functions/height_width/height_width.dart';
 
 class Signup extends StatefulWidget {
   const Signup({Key? key}) : super(key: key);
@@ -30,7 +33,7 @@ class _SignupState extends State<Signup> {
   final TextEditingController mobileNumberController = TextEditingController();
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
-  final UserController userController  = Get.find<UserController>();
+  final UserController userController = Get.find<UserController>();
 
   void toggleVisibility() {
     setState(() {
@@ -79,7 +82,7 @@ class _SignupState extends State<Signup> {
     return null;
   }
 
-  void saveUser(User newUser){
+  void saveUser(User newUser) {
     userController.setUser(newUser);
     print(newUser.userName);
     Get.toNamed("/supportive_community");
@@ -91,13 +94,16 @@ class _SignupState extends State<Signup> {
       backgroundColor: Colors.white,
       appBar: const AuthAppBar(),
       body: SingleChildScrollView(
-        child: Container(
-          margin: const EdgeInsets.only(left: 20, right: 20),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
           child: Form(
             key: _formKey,
             child: Column(
               children: [
-                const SizedBox(height: 40),
+                ProgressBar(page: 2),
+                SizedBox(
+                  height: calculateHeight(0.03, context),
+                ),
                 Container(
                   alignment: Alignment.topLeft,
                   child: const Text(
@@ -105,7 +111,9 @@ class _SignupState extends State<Signup> {
                     style: TextStyle(fontWeight: FontWeight.w600, fontSize: 32),
                   ),
                 ),
-                const SizedBox(height: 40),
+                SizedBox(
+                  height: calculateHeight(0.04, context),
+                ),
                 Column(
                   children: [
                     TextFormField(
@@ -132,7 +140,9 @@ class _SignupState extends State<Signup> {
                       ),
                       validator: validateName,
                     ),
-                    const SizedBox(height: 10),
+                    SizedBox(
+                      height: calculateHeight(0.012, context),
+                    ),
                     TextFormField(
                       controller: emailController,
                       decoration: InputDecoration(
@@ -157,7 +167,9 @@ class _SignupState extends State<Signup> {
                       ),
                       validator: validateEmail,
                     ),
-                    const SizedBox(height: 10),
+                    SizedBox(
+                      height: calculateHeight(0.012, context),
+                    ),
                     TextFormField(
                       controller: confirmEmailController,
                       decoration: InputDecoration(
@@ -182,7 +194,9 @@ class _SignupState extends State<Signup> {
                       ),
                       validator: validateConfirmEmail,
                     ),
-                    const SizedBox(height: 10),
+                    SizedBox(
+                      height: calculateHeight(0.012, context),
+                    ),
                     TextFormField(
                       controller: passwordController,
                       obscureText: isObscured,
@@ -206,7 +220,6 @@ class _SignupState extends State<Signup> {
                               BorderSide(color: Colors.black.withOpacity(0.5)),
                         ),
                         suffixIcon: IconButton(
-
                           icon: Icon(
                             isObscured
                                 ? Icons.visibility
@@ -218,14 +231,13 @@ class _SignupState extends State<Signup> {
                       ),
                       validator: validatePassword,
                     ),
-                    const SizedBox(height: 10),
+                    SizedBox(
+                      height: calculateHeight(0.012, context),
+                    ),
                     Row(
                       children: [
-
                         Container(
-
                           child: Checkbox(
-                          
                             value: showMobileNumberField,
                             onChanged: (newValue) {
                               setState(() {
@@ -242,7 +254,7 @@ class _SignupState extends State<Signup> {
                         children: [
                           Container(
                             width: 120,
-                            height: 44,
+                            height: calculateHeight(0.055, context),
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(8.0),
                               border: Border.all(
@@ -287,7 +299,7 @@ class _SignupState extends State<Signup> {
                           const SizedBox(width: 10),
                           Expanded(
                             child: SizedBox(
-                              height: 44,
+                              height: calculateHeight(0.055, context),
                               child: TextField(
                                 controller: mobileNumberController,
                                 decoration: InputDecoration(
@@ -315,7 +327,9 @@ class _SignupState extends State<Signup> {
                           ),
                         ],
                       ),
-                    const SizedBox(height: 30),
+                    SizedBox(
+                      height: calculateHeight(0.035, context),
+                    ),
                     ElevatedButton(
                       onPressed: () {
                         if (_formKey.currentState!.validate()) {
@@ -346,34 +360,12 @@ class _SignupState extends State<Signup> {
                     ),
                   ],
                 ),
-                const SizedBox(height: 20),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.end,
-                  children: [
-                    const Text(
-                      "If you have an account?",
-                      style: TextStyle(
-                        fontSize: 15,
-                        fontWeight: FontWeight.w400,
-                        color: Colors.black,
-                      ),
-                    ),
-                    GestureDetector(
-                      onTap: () {
-                        Get.toNamed("/signin");
-                      },
-                      child: const Text(
-                        'SignIn',
-                        style: TextStyle(
-                          fontSize: 15,
-                          fontWeight: FontWeight.w400,
-                          color: Colors.blue,
-                        ),
-                      ),
-                    ),
-                  ],
+                SizedBox(
+                  height: showMobileNumberField
+                      ? calculateHeight(0.11, context)
+                      : calculateHeight(0.165, context),
                 ),
+                const SignInText(),
               ],
             ),
           ),

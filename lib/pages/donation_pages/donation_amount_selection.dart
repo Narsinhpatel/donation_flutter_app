@@ -122,7 +122,8 @@ class DonationSelectionPage extends StatelessWidget {
                       if (amountSelectedByChip
                               .selectedAmount.value.isNotEmpty ||
                           amountController.text.isNotEmpty) {
-                        print("Success");
+                        // print("Success");
+                        Get.toNamed('/payment-methods');
                       } else {
                         displaySnackBar(
                             title: 'Donation',

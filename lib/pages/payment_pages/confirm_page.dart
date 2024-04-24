@@ -94,7 +94,7 @@ class _ConfirmPaymentState extends State<ConfirmPayment> {
             const SizedBox(height: 30),
             ElevatedButton(
               onPressed: () {
-                Get.toNamed("/received_otp");
+                Get.toNamed("/received-otp");
               },
               style: ElevatedButton.styleFrom(
                 backgroundColor: const Color(0xFF1F878E),

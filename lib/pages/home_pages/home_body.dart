@@ -1,6 +1,7 @@
 import 'package:donation_flutter_app/pages/home_pages/home_page.dart';
 import 'package:donation_flutter_app/pages/home_pages/inbox_page.dart';
 import 'package:donation_flutter_app/pages/home_pages/notification_page.dart';
+import 'package:donation_flutter_app/pages/home_pages/user_profile_page.dart';
 import 'package:donation_flutter_app/utils/components/home_components/home_appbar.dart';
 import 'package:donation_flutter_app/utils/components/home_drawer.dart';
 import 'package:flutter/cupertino.dart';
@@ -20,6 +21,7 @@ class _HomeBodyState extends State<HomeBody> {
     HomePage(),
     const NotificationPage(),
     const InboxPage(),
+    const UserProfilePage(),
   ];
 
   @override
@@ -68,7 +70,7 @@ class _HomeBodyState extends State<HomeBody> {
                     ? Colors.black.withOpacity(0.4)
                     : const Color.fromRGBO(31, 135, 142, 1),
               ),
-              label: "Home",
+              label: "Notifications",
             ),
             BottomNavigationBarItem(
               icon: Icon(
@@ -77,7 +79,7 @@ class _HomeBodyState extends State<HomeBody> {
                     ? Colors.black.withOpacity(0.4)
                     : const Color.fromRGBO(31, 135, 142, 1),
               ),
-              label: "HOme",
+              label: "Inbox",
             ),
             BottomNavigationBarItem(
               icon: Icon(
@@ -86,7 +88,7 @@ class _HomeBodyState extends State<HomeBody> {
                     ? Colors.black.withOpacity(0.4)
                     : const Color.fromRGBO(31, 135, 142, 1),
               ),
-              label: "HOme",
+              label: "User Profile",
             ),
           ],
         ),

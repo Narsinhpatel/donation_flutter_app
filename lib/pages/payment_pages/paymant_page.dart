@@ -97,7 +97,7 @@ class _PaymentMethodsState extends State<PaymentMethods> {
             const SizedBox(height: 30),
             ElevatedButton(
               onPressed: () {
-                Get.toNamed("/confirm_payment");
+                Get.toNamed("/confirm-payment");
               },
               style: ElevatedButton.styleFrom(
                 backgroundColor: const Color(0xFF1F878E),

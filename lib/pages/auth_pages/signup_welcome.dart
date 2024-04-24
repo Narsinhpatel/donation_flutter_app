@@ -2,6 +2,9 @@ import 'dart:async';
 
 import 'package:donation_flutter_app/controllers/signup_options_controller.dart';
 import 'package:donation_flutter_app/utils/components/auth_component/auth_appbar.dart';
+import 'package:donation_flutter_app/utils/components/auth_component/singin_text.dart';
+import 'package:donation_flutter_app/utils/components/home_components/progress_bar.dart';
+import 'package:donation_flutter_app/utils/functions/height_width/height_width.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -43,12 +46,13 @@ class _SignupWelcomeState extends State<SignupWelcome> {
       appBar: const AuthAppBar(),
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.all(20.0),
+          padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const SizedBox(
-                height: 20,
+              ProgressBar(page: 1,),
+              SizedBox(
+                height: calculateHeight(0.03, context),
               ),
               const Text(
                 "Welcome to\nHeartSprint",
@@ -57,8 +61,8 @@ class _SignupWelcomeState extends State<SignupWelcome> {
                   fontWeight: FontWeight.w900,
                 ),
               ),
-              const SizedBox(
-                height: 30,
+              SizedBox(
+                height: calculateHeight(0.04, context),
               ),
               const Text(
                 "You need to select profile type that you want to use in the app.",
@@ -67,7 +71,9 @@ class _SignupWelcomeState extends State<SignupWelcome> {
                   fontWeight: FontWeight.w500,
                 ),
               ),
-              const SizedBox(height: 25),
+              SizedBox(
+                height: calculateHeight(0.03, context),
+              ),
               ListView.builder(
                 shrinkWrap: true,
                 physics: const NeverScrollableScrollPhysics(),
@@ -87,7 +93,7 @@ class _SignupWelcomeState extends State<SignupWelcome> {
                               .setCurrentSignUpOption(selectedValue);
                         });
 
-                        Timer(Duration(milliseconds: 200), () {
+                        Timer(const Duration(milliseconds: 200), () {
                           // Get.toNamed('/signup_second');
                           if (selectedValue == 'Option 1') {
                             Get.toNamed('/signup');
@@ -147,31 +153,11 @@ class _SignupWelcomeState extends State<SignupWelcome> {
                   );
                 },
               ),
-              const SizedBox(
-                height: 30,
+              SizedBox(
+                height: calculateHeight(0.045, context),
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  const Text(
-                    "If you have an account? ",
-                    style: TextStyle(
-                        color: Colors.black45, fontWeight: FontWeight.bold),
-                  ),
-                  GestureDetector(
-                    onTap: () {
-                      Get.toNamed('/signin');
-                    },
-                    child: const Text(
-                      "Sign in",
-                      style: TextStyle(
-                        color: Colors.blue,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  )
-                ],
-              )
+
+              const SignInText(),
             ],
           ),
         ),

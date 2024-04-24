@@ -1,9 +1,12 @@
+import 'package:donation_flutter_app/utils/components/auth_component/singin_text.dart';
 import 'package:donation_flutter_app/utils/components/auth_component/supportive_page_fields.dart';
+import 'package:donation_flutter_app/utils/components/home_components/progress_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 
 import '../../utils/components/auth_component/auth_appbar.dart';
+import '../../utils/functions/height_width/height_width.dart';
 
 class SupportiveCommunity extends StatefulWidget {
   const SupportiveCommunity({super.key});
@@ -27,13 +30,16 @@ class _SupportiveCommunityState extends State<SupportiveCommunity> {
       backgroundColor: Colors.white,
       appBar: const AuthAppBar(),
       body: SingleChildScrollView(
-        child: Container(
-          margin: const EdgeInsets.only(left: 20, right: 20),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
           child: Form(
             key: _formKey,
             child: Column(
               children: [
-                const SizedBox(height: 40),
+                ProgressBar(page: 3),
+                SizedBox(
+                  height: calculateHeight(0.03, context),
+                ),
                 Container(
                   alignment: Alignment.topLeft,
                   child: const Text(
@@ -41,17 +47,23 @@ class _SupportiveCommunityState extends State<SupportiveCommunity> {
                     style: TextStyle(fontWeight: FontWeight.w600, fontSize: 32),
                   ),
                 ),
-                const SizedBox(height: 40),
+                SizedBox(
+                  height: calculateHeight(0.03, context),
+                ),
                 Container(
                   alignment: Alignment.topLeft,
                   child: const Text(
                     '''If you know any people who need support\nplease provide their info below.''',
-                    style: TextStyle(fontWeight: FontWeight.w400, fontSize: 16),
+                    style: TextStyle(fontWeight: FontWeight.w400, fontSize: 14),
                   ),
                 ),
-                const SizedBox(height: 40),
+                SizedBox(
+                  height: calculateHeight(0.03, context),
+                ),
                 const SupportiveTextFields(),
-                const SizedBox(height: 20),
+                SizedBox(
+                  height: calculateHeight(0.02, context),
+                ),
                 Row(
                   children: [
                     IconButton(
@@ -69,10 +81,14 @@ class _SupportiveCommunityState extends State<SupportiveCommunity> {
                     )
                   ],
                 ),
-                const SizedBox(height: 20),
+                SizedBox(
+                  height: calculateHeight(0.02, context),
+                ),
                 if (showAdditionalFields) ...[
                   const SupportiveTextFields(),
-                  const SizedBox(height: 20),
+                  SizedBox(
+                    height: calculateHeight(0.02, context),
+                  ),
                 ],
                 ElevatedButton(
                   onPressed: () {
@@ -96,7 +112,9 @@ class _SupportiveCommunityState extends State<SupportiveCommunity> {
                         fontWeight: FontWeight.w500),
                   ),
                 ),
-                const SizedBox(height: 20),
+                SizedBox(
+                  height: calculateHeight(0.02, context),
+                ),
                 TextButton(
                   onPressed: () {
                     Get.offAllNamed("/home");
@@ -111,34 +129,10 @@ class _SupportiveCommunityState extends State<SupportiveCommunity> {
                     ),
                   ),
                 ),
-                const SizedBox(height: 20),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.end,
-                  children: [
-                    const Text(
-                      "If you have an account?",
-                      style: TextStyle(
-                        fontSize: 15,
-                        fontWeight: FontWeight.w400,
-                        color: Colors.black,
-                      ),
-                    ),
-                    GestureDetector(
-                      onTap: () {
-                        Get.toNamed("/signin");
-                      },
-                      child: const Text(
-                        'SignIn',
-                        style: TextStyle(
-                          fontSize: 15,
-                          fontWeight: FontWeight.w400,
-                          color: Colors.blue,
-                        ),
-                      ),
-                    ),
-                  ],
+                SizedBox(
+                  height: calculateHeight(0.095, context),
                 ),
+                const SignInText(),
               ],
             ),
           ),
