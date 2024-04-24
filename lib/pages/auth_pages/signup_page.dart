@@ -30,7 +30,7 @@ class _SignupState extends State<Signup> {
   final TextEditingController mobileNumberController = TextEditingController();
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
-  final UserController userController  = Get.put(UserController());
+  final UserController userController  = Get.find<UserController>();
 
   void toggleVisibility() {
     setState(() {

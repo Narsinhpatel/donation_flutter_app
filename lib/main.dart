@@ -19,8 +19,8 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
-      initialRoute: '/thank-you',
-      // initialRoute: '/home',
+      // initialRoute: '/thank-you',
+      initialRoute: '/welcome',
       getPages: appRoutes(),
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.white),

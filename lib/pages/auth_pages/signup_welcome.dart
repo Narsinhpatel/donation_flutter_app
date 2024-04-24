@@ -5,6 +5,8 @@ import 'package:donation_flutter_app/utils/components/auth_component/auth_appbar
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../controllers/user_controller.dart';
+
 class SignupWelcome extends StatefulWidget {
   const SignupWelcome({Key? key}) : super(key: key);
 
@@ -13,6 +15,8 @@ class SignupWelcome extends StatefulWidget {
 }
 
 class _SignupWelcomeState extends State<SignupWelcome> {
+  final UserController userController  = Get.put(UserController());
+
   final SignUpOptionController signUpOptionController =
       Get.put(SignUpOptionController());
   String selectedValue = '';
