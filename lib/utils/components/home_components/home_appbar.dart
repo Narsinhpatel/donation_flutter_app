@@ -11,7 +11,7 @@ class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
   Widget build(BuildContext context) {
     return AppBar(
       leading: Padding(
-        padding: const EdgeInsets.fromLTRB(10, 0, 0, 0),
+        padding: const EdgeInsets.fromLTRB(20, 0, 0, 0),
         child:  IconButton(
           onPressed: () {
             Get.back();

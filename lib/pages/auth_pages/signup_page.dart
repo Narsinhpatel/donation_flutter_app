@@ -206,6 +206,7 @@ class _SignupState extends State<Signup> {
                               BorderSide(color: Colors.black.withOpacity(0.5)),
                         ),
                         suffixIcon: IconButton(
+
                           icon: Icon(
                             isObscured
                                 ? Icons.visibility
@@ -220,13 +221,18 @@ class _SignupState extends State<Signup> {
                     const SizedBox(height: 10),
                     Row(
                       children: [
-                        Checkbox(
-                          value: showMobileNumberField,
-                          onChanged: (newValue) {
-                            setState(() {
-                              showMobileNumberField = newValue!;
-                            });
-                          },
+
+                        Container(
+
+                          child: Checkbox(
+                          
+                            value: showMobileNumberField,
+                            onChanged: (newValue) {
+                              setState(() {
+                                showMobileNumberField = newValue!;
+                              });
+                            },
+                          ),
                         ),
                         const Text('Use mobile number instead of email'),
                       ],

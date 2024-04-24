@@ -15,28 +15,28 @@ class InboxPage extends StatelessWidget {
         'subtitle':
         'Thank you, I hop your help is useful for others, We are always open...',
         'imagePath': 'assets/images/inbox/image1.png',
-        'time': DateTime.now().subtract(Duration(hours: 2)),
+        'time': DateTime.now().subtract(const Duration(hours: 2)),
       },
       {
         'title': 'UNICEF',
         'subtitle':
         'Thank you, I hop your help is useful for others, We are always open...',
         'imagePath': 'assets/images/inbox/image2.png',
-        'time': DateTime.now().subtract(Duration(hours: 5)),
+        'time': DateTime.now().subtract(const Duration(hours: 5)),
       },
       {
         'title': 'TUA Orphanage',
         'subtitle':
         'Thank you, I hop your help is useful for others, We are always open...',
         'imagePath': 'assets/images/inbox/image3.png',
-        'time': DateTime.now().subtract(Duration(hours: 10)),
+        'time': DateTime.now().subtract(const Duration(hours: 10)),
       },
     ];
 
     return Scaffold(
 
       body: Container(
-        padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
+        padding: const EdgeInsets.fromLTRB(30, 0, 20, 0),
         child: Column(
           children: [
             Container(

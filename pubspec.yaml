@@ -65,6 +65,7 @@ flutter:
   assets:
     - assets/images/welcome/
     - assets/images/auth/
+    - assets/images/payment/
     - assets/images/auth/flags/
     - assets/images/signup_welcome/
     - assets/images/home/
