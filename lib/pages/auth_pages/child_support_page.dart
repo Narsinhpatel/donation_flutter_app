@@ -1,3 +1,4 @@
+import 'package:donation_flutter_app/routes/route_names.dart';
 import 'package:donation_flutter_app/utils/components/auth_component/child_support_fields.dart';
 import 'package:donation_flutter_app/utils/components/auth_component/singin_text.dart';
 import 'package:donation_flutter_app/utils/components/auth_component/supportive_page_fields.dart';
@@ -108,7 +109,7 @@ class _ChildSupportState extends State<ChildSupport> {
                   onPressed: () {
                     if (_formKey.currentState!.validate()) {
 
-                      Get.offAllNamed("/home");
+                      Get.offAllNamed(RouteNames.HOME_BODY_ROUTE);
                     }
                   },
                   style: ElevatedButton.styleFrom(

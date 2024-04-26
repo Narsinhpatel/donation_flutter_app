@@ -1,4 +1,5 @@
 import 'package:donation_flutter_app/controllers/user_controller.dart';
+import 'package:donation_flutter_app/routes/route_names.dart';
 import 'package:donation_flutter_app/utils/components/auth_component/auth_appbar.dart';
 import 'package:donation_flutter_app/utils/components/auth_component/singin_text.dart';
 import 'package:donation_flutter_app/utils/components/home_components/progress_bar.dart';
@@ -85,7 +86,7 @@ class _SignupState extends State<Signup> {
   void saveUser(User newUser) {
     userController.setUser(newUser);
     print(newUser.userName);
-    Get.toNamed("/supportive_community");
+    Get.toNamed(RouteNames.SUPPORTIVE_COMMUNITY_ROUTE);
   }
 
   @override
@@ -208,16 +209,16 @@ class _SignupState extends State<Signup> {
                           color: Colors.black.withOpacity(0.5),
                         ),
                         contentPadding: const EdgeInsets.symmetric(
-                            vertical: 7, horizontal: 16),
+                            vertical: 7, horizontal: 16,),
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(8.0),
                           borderSide:
-                              BorderSide(color: Colors.black.withOpacity(0.5)),
+                              BorderSide(color: Colors.black.withOpacity(0.5),),
                         ),
                         focusedBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(8.0),
                           borderSide:
-                              BorderSide(color: Colors.black.withOpacity(0.5)),
+                              BorderSide(color: Colors.black.withOpacity(0.5),),
                         ),
                         suffixIcon: IconButton(
                           icon: Icon(

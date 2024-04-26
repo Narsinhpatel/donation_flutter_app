@@ -1,6 +1,8 @@
+import 'package:donation_flutter_app/routes/route_names.dart';
 import 'package:donation_flutter_app/utils/app_static_data/default_users.dart';
 import 'package:donation_flutter_app/utils/components/auth_component/auth_appbar.dart';
 import 'package:donation_flutter_app/utils/components/snack_bar.dart';
+import 'package:donation_flutter_app/utils/functions/height_width/height_width.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
@@ -21,6 +23,9 @@ class _SignInState extends State<SignIn> {
   bool _isObscured = true;
   final signInForm = GlobalKey<FormState>();
 
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
+
   void _toggleVisibility() {
     setState(() {
       _isObscured = !_isObscured;
@@ -32,19 +37,17 @@ class _SignInState extends State<SignIn> {
   void saveUser(User newUser) {
     userController.setUser(newUser);
     print(newUser.userName);
-    Get.toNamed("/home");
+    Get.toNamed(RouteNames.HOME_BODY_ROUTE);
   }
 
   @override
   Widget build(BuildContext context) {
-    final TextEditingController emailController = TextEditingController();
-    final TextEditingController passwordController = TextEditingController();
-
     void signInUser() {
       bool found = false;
       final List<User> users = getUsers();
       for (var user in users) {
-        if (user.emailId == emailController.text && user.password == passwordController.text) {
+        if (user.emailId == emailController.text &&
+            user.password == passwordController.text) {
           found = true;
           saveUser(user);
           break; // Stop the loop as we found the user
@@ -52,26 +55,12 @@ class _SignInState extends State<SignIn> {
       }
 
       if (!found) {
-        displaySnackBar(title: "Login", message: "Email or Password is not valid!", isError: true);
+        displaySnackBar(
+          title: "Login",
+          message: "Email or Password is not valid!",
+          isError: true,
+        );
       }
-    }
-
-    void signInUser1() {
-      User? newUser;
-      final List<User> users = getUsers();
-      users.map((user) {
-        if (user.emailId == emailController.text.toString() &&
-            user.password == passwordController.text.toString()) {
-          newUser = User(
-            emailId: emailController.text.toString(),
-            password: passwordController.text.toString(),
-          );
-          saveUser(newUser!);
-        }else{
-          displaySnackBar(title: "Login", message: "Email or Password is not valid !", isError: true);
-        }
-      }
-      );
     }
 
     return Scaffold(
@@ -80,14 +69,14 @@ class _SignInState extends State<SignIn> {
         body: SingleChildScrollView(
           child: Column(
             children: [
-              const SizedBox(height: 40),
+              SizedBox(height: calculateHeight(0.03, context)),
               const Center(
                   child: Text("Sign In",
                       style: TextStyle(
                           fontSize: 36, fontWeight: FontWeight.w600))),
-              const SizedBox(height: 40),
-              Container(
-                margin: const EdgeInsets.only(left: 30, right: 30),
+              SizedBox(height: calculateHeight(0.03, context)),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20),
                 child: Column(
                   children: [
                     OutlinedButton(
@@ -121,7 +110,7 @@ class _SignInState extends State<SignIn> {
                         ],
                       ),
                     ),
-                    const SizedBox(height: 15),
+                    SizedBox(height: calculateHeight(0.02, context)),
                     OutlinedButton(
                       onPressed: () {},
                       style: OutlinedButton.styleFrom(
@@ -153,14 +142,14 @@ class _SignInState extends State<SignIn> {
                         ],
                       ),
                     ),
-                    const SizedBox(height: 30),
+                    SizedBox(height: calculateHeight(0.03, context)),
                     const Center(
                         child: Text(
                       "or sign in with your email",
                       style:
                           TextStyle(fontWeight: FontWeight.w400, fontSize: 18),
                     )),
-                    const SizedBox(height: 20),
+                    SizedBox(height: calculateHeight(0.03, context)),
                     Form(
                       key: signInForm,
                       child: Column(
@@ -196,7 +185,7 @@ class _SignInState extends State<SignIn> {
                               return null;
                             },
                           ),
-                          const SizedBox(height: 20),
+                          SizedBox(height: calculateHeight(0.02, context)),
                           TextFormField(
                             controller: passwordController,
                             obscureText: _isObscured,
@@ -240,13 +229,13 @@ class _SignInState extends State<SignIn> {
                               return null;
                             },
                           ),
-                          const SizedBox(height: 5),
+                          SizedBox(height: calculateHeight(0.02, context)),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.end,
                             children: [
                               GestureDetector(
                                 onTap: () {
-                                  Get.toNamed('/forget_password');
+                                  Get.toNamed(RouteNames.FORGET_PASSWORD_ROUTE);
                                 },
                                 child: const Text(
                                   'Forget Password',
@@ -260,7 +249,7 @@ class _SignInState extends State<SignIn> {
                               ),
                             ],
                           ),
-                          const SizedBox(height: 30),
+                          SizedBox(height: calculateHeight(0.03, context)),
                           ElevatedButton(
                             onPressed: () {
                               if (signInForm.currentState!.validate()) {
@@ -288,6 +277,7 @@ class _SignInState extends State<SignIn> {
                         ],
                       ),
                     ),
+                    SizedBox(height: calculateHeight(0.14, context)),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
@@ -300,7 +290,7 @@ class _SignInState extends State<SignIn> {
                         ),
                         GestureDetector(
                           onTap: () {
-                            Get.toNamed('/signup_welcome');
+                            Get.toNamed(RouteNames.SIGNUP_WELCOME_ROUTE);
                           },
                           child: const Text(
                             "Create Account",

@@ -15,8 +15,14 @@ class HomeBody extends StatefulWidget {
 }
 
 class _HomeBodyState extends State<HomeBody> {
-  int selectedIndex = 0;
+  int selectedIndex = 0;    //index to manipulate screen through the bottom navigation
 
+  /*
+   * list to display widget in body of main app screen
+   *
+   * add the widgets to display in body
+   *
+   */
   List<Widget> widgetList = [
     HomePage(),
     const NotificationPage(),
@@ -39,8 +45,27 @@ class _HomeBodyState extends State<HomeBody> {
               ],
             )
           : const HomeAppBar(),
+
+      /*
+       * drawer to show only on home page not in others
+       */
       drawer: selectedIndex != 0 ? null : const HomeDrawer(),
+
+      /*
+       * body will change the content by tapping on bottom navigation bar
+       *
+       * it will take the body widget from 'widgetList' list
+       *
+       */
+
       body: widgetList[selectedIndex],
+
+      /*
+       * bottom navigation bar to navigate between
+       * home, inbox, notifications and user profile
+       *
+       */
+
       bottomNavigationBar: SizedBox(
         height: 70,
         child: BottomNavigationBar(

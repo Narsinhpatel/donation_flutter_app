@@ -1,3 +1,4 @@
+import 'package:donation_flutter_app/routes/route_names.dart';
 import 'package:donation_flutter_app/utils/app_static_data/image_strings.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -45,7 +46,7 @@ class TitlePageCardsList extends StatelessWidget {
               : const EdgeInsets.symmetric(horizontal: 8),
           child: InkWell(
             onTap: (){
-              Get.toNamed('/donation-details');
+              Get.toNamed(RouteNames.DONATION_DETAILS_ROUTE);
             },
             child: SizedBox(
               height: 290,

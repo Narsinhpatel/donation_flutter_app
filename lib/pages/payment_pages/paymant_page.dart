@@ -1,3 +1,4 @@
+import 'package:donation_flutter_app/routes/route_names.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
@@ -97,7 +98,7 @@ class _PaymentMethodsState extends State<PaymentMethods> {
             const SizedBox(height: 30),
             ElevatedButton(
               onPressed: () {
-                Get.toNamed("/confirm-payment");
+                Get.toNamed(RouteNames.CONFIRM_PAYMENT_ROUTE);
               },
               style: ElevatedButton.styleFrom(
                 backgroundColor: const Color(0xFF1F878E),

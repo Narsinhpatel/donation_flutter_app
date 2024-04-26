@@ -1,6 +1,11 @@
 import 'package:donation_flutter_app/utils/app_static_data/image_strings.dart';
 import 'package:flutter/material.dart';
 
+
+/*
+ * Settings screen to display settings options
+ */
+
 class SettingsPage extends StatefulWidget {
   const SettingsPage({super.key});
 
@@ -14,8 +19,8 @@ class _SettingsPageState extends State<SettingsPage> {
   @override
   Widget build(BuildContext context) {
     final snackBar = SnackBar(
-      content: Text('Notifications has been allowed'),
-      duration: Duration(seconds: 2),
+      content: const Text('Notifications has been allowed'),
+      duration: const Duration(seconds: 2),
       action: SnackBarAction(
         label: 'Undo',
         onPressed: () {

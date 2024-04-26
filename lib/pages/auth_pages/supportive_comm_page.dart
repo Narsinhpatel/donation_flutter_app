@@ -1,3 +1,4 @@
+import 'package:donation_flutter_app/routes/route_names.dart';
 import 'package:donation_flutter_app/utils/components/auth_component/singin_text.dart';
 import 'package:donation_flutter_app/utils/components/auth_component/supportive_page_fields.dart';
 import 'package:donation_flutter_app/utils/components/home_components/progress_bar.dart';
@@ -93,7 +94,7 @@ class _SupportiveCommunityState extends State<SupportiveCommunity> {
                 ElevatedButton(
                   onPressed: () {
                     if (_formKey.currentState!.validate()) {
-                      Get.toNamed("/child_support");
+                      Get.toNamed(RouteNames.CHILD_SUPPORT_ROUTE);
                     }
                   },
                   style: ElevatedButton.styleFrom(
@@ -117,7 +118,7 @@ class _SupportiveCommunityState extends State<SupportiveCommunity> {
                 ),
                 TextButton(
                   onPressed: () {
-                    Get.offAllNamed("/home");
+                    Get.offAllNamed(RouteNames.HOME_BODY_ROUTE);
                   },
                   child: const Text(
                     'Skip',

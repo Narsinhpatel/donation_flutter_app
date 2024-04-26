@@ -5,6 +5,7 @@ import 'package:donation_flutter_app/pages/payment_pages/confirm_page.dart';
 import 'package:donation_flutter_app/pages/payment_pages/otp_page.dart';
 import 'package:donation_flutter_app/pages/payment_pages/paymant_page.dart';
 import 'package:donation_flutter_app/pages/welcome_pages/welcome.dart';
+import 'package:donation_flutter_app/routes/route_names.dart';
 import 'package:donation_flutter_app/routes/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -22,8 +23,7 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
-      // initialRoute: '/thank-you',
-      initialRoute: '/welcome',
+      initialRoute: RouteNames.ON_BOARDING_ROUTE,
       getPages: appRoutes(),
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.white),

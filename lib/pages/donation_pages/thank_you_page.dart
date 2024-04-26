@@ -1,3 +1,4 @@
+import 'package:donation_flutter_app/routes/route_names.dart';
 import 'package:donation_flutter_app/utils/app_static_data/image_strings.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -88,7 +89,7 @@ class ThankYouPage extends StatelessWidget {
           ),
           ElevatedButton(
             onPressed: () {
-              Get.offAllNamed('/home');
+              Get.offAllNamed(RouteNames.HOME_BODY_ROUTE);
             },
             style: ElevatedButton.styleFrom(
               backgroundColor: const Color(0xFF1F878E),

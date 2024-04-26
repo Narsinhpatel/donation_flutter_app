@@ -1,3 +1,4 @@
+import 'package:donation_flutter_app/routes/route_names.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -18,7 +19,7 @@ class SignInText extends StatelessWidget {
           ),
           GestureDetector(
             onTap: () {
-              Get.toNamed('/signin');
+              Get.toNamed(RouteNames.SIGN_IN_ROUTE);
             },
             child: const Text(
               "Sign in",

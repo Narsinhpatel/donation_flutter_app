@@ -1,4 +1,5 @@
 import 'package:donation_flutter_app/controllers/user_controller.dart';
+import 'package:donation_flutter_app/routes/route_names.dart';
 import 'package:donation_flutter_app/utils/components/auth_component/auth_appbar.dart';
 import 'package:donation_flutter_app/utils/components/auth_component/singin_text.dart';
 import 'package:donation_flutter_app/utils/components/home_components/progress_bar.dart';
@@ -74,7 +75,7 @@ class _SignupSecondState extends State<SignupSecond> {
 
   void saveUser(User newUser) {
     userController.setUser(newUser);
-    Get.toNamed("/supportive_community");
+    Get.toNamed(RouteNames.SUPPORTIVE_COMMUNITY_ROUTE);
   }
 
   @override

@@ -1,4 +1,5 @@
 import 'package:donation_flutter_app/controllers/donation_amount_controller.dart';
+import 'package:donation_flutter_app/routes/route_names.dart';
 import 'package:donation_flutter_app/utils/components/donation/carousel_component.dart';
 import 'package:donation_flutter_app/utils/components/donation/donation_amount.dart';
 import 'package:donation_flutter_app/utils/components/snack_bar.dart';
@@ -6,6 +7,10 @@ import 'package:donation_flutter_app/utils/functions/height_width/height_width.d
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+/*
+ * Scaffold screen to select or enter amount for donation with options os amount
+ * or input of amount
+ */
 class DonationSelectionPage extends StatelessWidget {
   DonationSelectionPage({super.key});
 
@@ -15,6 +20,15 @@ class DonationSelectionPage extends StatelessWidget {
   final DonationAmountController amountSelectedByChip =
       Get.put(DonationAmountController());
 
+  /*
+   * @purpose : setter method to set amount selected by user
+   *
+   * @parameter : String Amount
+   *
+   * @return : void
+   *
+   * @created by : Vedant Rana
+   */
   setSelectedAmount(String amount) {
     selectedAmountByChip = amount;
   }
@@ -36,21 +50,27 @@ class DonationSelectionPage extends StatelessWidget {
               height: calculateHeight(0.45, context),
               child: Stack(
                 children: [
+
+                  /*
+                   * Carousel Component to display images in
+                   * donation amount selection page
+                   *
+                   */
+
                   const CarouselImages(),
                   Positioned(
                     bottom: 0,
                     left: 0,
                     child: Container(
                       width: calculateWidth(1, context),
-                      // Match parent Stack width
                       height: calculateHeight(0.02, context),
-                      decoration: BoxDecoration(
+                      decoration: const BoxDecoration(
                         color: Color.fromRGBO(250, 253, 255, 1.0),
                         borderRadius: BorderRadius.only(
                           topLeft: Radius.circular(50),
                           topRight: Radius.circular(50),
                         ),
-                      ), // Match parent Stack height
+                      ),
                     ),
                   )
                 ],
@@ -76,6 +96,12 @@ class DonationSelectionPage extends StatelessWidget {
                   ),
                   SizedBox(
                     height: calculateHeight(0.2, context),
+
+                    /*
+                     *Donation amount Chips custom widget to select amount
+                     *
+                     */
+
                     child: DonationAmount(),
                   ),
                   SizedBox(
@@ -96,7 +122,7 @@ class DonationSelectionPage extends StatelessWidget {
                       padding: const EdgeInsets.symmetric(
                         horizontal: 16,
                         vertical: 6,
-                      ), // Add padding
+                      ),
                       decoration: BoxDecoration(
                         color: Colors.grey[200],
                         borderRadius: BorderRadius.circular(10.0),
@@ -123,7 +149,7 @@ class DonationSelectionPage extends StatelessWidget {
                               .selectedAmount.value.isNotEmpty ||
                           amountController.text.isNotEmpty) {
                         // print("Success");
-                        Get.toNamed('/payment-methods');
+                        Get.toNamed(RouteNames.PAYMENT_METHODS_ROUTE);
                       } else {
                         displaySnackBar(
                             title: 'Donation',

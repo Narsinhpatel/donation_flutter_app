@@ -1,3 +1,4 @@
+import 'package:donation_flutter_app/routes/route_names.dart';
 import 'package:donation_flutter_app/utils/app_static_data/image_strings.dart';
 import 'package:donation_flutter_app/utils/components/donation/carousel_component.dart';
 import 'package:flutter/material.dart';
@@ -5,6 +6,9 @@ import 'package:get/get.dart';
 
 import '../../utils/functions/height_width/height_width.dart';
 
+/*
+ * Donation Details page to display donation type and required amount to donate, etc.
+ */
 class DonationDetails extends StatelessWidget {
   const DonationDetails({super.key});
 
@@ -135,9 +139,10 @@ class DonationDetails extends StatelessWidget {
                                   Text(
                                     "Raised so far",
                                     style: TextStyle(
-                                        fontSize: 12,
-                                        fontWeight: FontWeight.w600,
-                                        color: Colors.black.withOpacity(0.4)),
+                                      fontSize: 12,
+                                      fontWeight: FontWeight.w600,
+                                      color: Colors.black.withOpacity(0.4),
+                                    ),
                                   ),
                                   const SizedBox(
                                     height: 5,
@@ -203,7 +208,7 @@ class DonationDetails extends StatelessWidget {
         padding: const EdgeInsets.fromLTRB(20, 0, 20, 20),
         child: ElevatedButton(
           onPressed: () {
-            Get.toNamed('/donation-amount-select');
+            Get.toNamed(RouteNames.DONATION_AMOUNT_ROUTE);
           },
           style: ElevatedButton.styleFrom(
             backgroundColor: const Color(0xFF1F878E),

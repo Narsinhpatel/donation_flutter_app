@@ -8,8 +8,9 @@ import 'package:get/get.dart';
 class HomePage extends StatelessWidget {
   HomePage({super.key});
 
-  final UserController userController = Get.put(UserController());
-  // final UserController userController = Get.find<UserController>();
+  //user controller to display the name in the home page
+  // final UserController userController = Get.put(UserController());
+  final UserController userController = Get.find<UserController>();
 
   @override
   Widget build(BuildContext context) {
@@ -52,6 +53,11 @@ class HomePage extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 16),
               child: Container(
                 height: 120,
+
+                /*
+                 * donation options to display types of donations in horizontal ListView
+                 */
+
                 child: DonationType(),
               ),
             ),
@@ -61,6 +67,11 @@ class HomePage extends StatelessWidget {
             Container(
               padding: EdgeInsets.zero,
               height: 300,
+
+              /*
+               * Title cards to display types of donations in horizontal List ListView
+               */
+
               child: TitlePageCardsList(),
             ),
             const Padding(
@@ -78,6 +89,11 @@ class HomePage extends StatelessWidget {
             ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20),
+
+              /*
+               *Nearby cases to display types of donations in vertical ListView
+               */
+
               child: NearbyCases(), // Remove Expanded
             ),
           ],

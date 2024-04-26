@@ -1,3 +1,4 @@
+import 'package:donation_flutter_app/routes/route_names.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -91,7 +92,7 @@ class HomeDrawer extends StatelessWidget {
                   ),
                 ),
                 onTap: () {
-                  Get.toNamed('/settings');
+                  Get.toNamed(RouteNames.SETTINGS_ROUTE);
                 },
               ),
               const SizedBox(

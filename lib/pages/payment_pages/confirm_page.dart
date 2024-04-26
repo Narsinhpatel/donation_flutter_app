@@ -1,3 +1,4 @@
+import 'package:donation_flutter_app/routes/route_names.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -94,7 +95,7 @@ class _ConfirmPaymentState extends State<ConfirmPayment> {
             const SizedBox(height: 30),
             ElevatedButton(
               onPressed: () {
-                Get.toNamed("/received-otp");
+                Get.toNamed(RouteNames.RECEIVED_OTP_ROUTE);
               },
               style: ElevatedButton.styleFrom(
                 backgroundColor: const Color(0xFF1F878E),

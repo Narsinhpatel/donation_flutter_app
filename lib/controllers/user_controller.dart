@@ -4,10 +4,10 @@ import '../models/user/user.dart';
 
 /*
    * @purpose :
-   * controller class to handle all operations related Users Index
+   * controller class to handle all operations related Users login and Signup
    *
    * it extends GetxController which provides functionality to use Observable
-   * Int.
+   * User object to observe and store the details of user in it.
    *
    * @created by : Vedant Rana
    */
@@ -15,12 +15,11 @@ class UserController extends GetxController{
   Rx<User> user = Rx<User>(User());
 
   /*
-   * @purpose :
-   * get user details
+   * @purpose : getter method to get user details from observable User object
    *
    * @parameter : No Parameter
    *
-   * @return : void
+   * @return : User object whose value is setted from RxUser's value
    *
    * @created by : Vedant Rana
    */
@@ -28,9 +27,9 @@ class UserController extends GetxController{
 
   /*
    * @purpose :
-   * set user details
+   * setter function which takes login and signup details and set it to RxUser
    *
-   * @parameter : No Parameter
+   * @parameter : User object
    *
    * @return : void
    *

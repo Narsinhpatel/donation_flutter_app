@@ -1,3 +1,4 @@
+import 'package:donation_flutter_app/routes/route_names.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -119,7 +120,7 @@ class _ReceivedOtpState extends State<ReceivedOtp> {
             const SizedBox(height: 30),
             ElevatedButton(
               onPressed: () {
-                Get.toNamed("/thank-you-page");
+                Get.toNamed(RouteNames.THANK_YOU_ROUTE);
               },
               style: ElevatedButton.styleFrom(
                 backgroundColor: const Color(0xFF1F878E),

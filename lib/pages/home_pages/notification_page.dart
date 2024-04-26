@@ -1,3 +1,4 @@
+import 'package:donation_flutter_app/utils/app_static_data/notification_data.dart';
 import 'package:donation_flutter_app/utils/components/home_components/home_appbar.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
@@ -7,30 +8,7 @@ class NotificationPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    List<Map<String, dynamic>> inboxItems = [
-      {
-        'title': 'Care Orgnization',
-        'subtitle':
-            'Thank you, I hop your help is useful for others, We are always open...',
-        'imagePath': 'assets/images/inbox/image1.png',
-        'time': DateTime.now().subtract(Duration(hours: 2)),
-      },
-      {
-        'title': 'UNICEF',
-        'subtitle':
-            'Thank you, I hop your help is useful for others, We are always open...',
-        'imagePath': 'assets/images/inbox/image2.png',
-        'time': DateTime.now().subtract(Duration(hours: 5)),
-      },
-      {
-        'title': 'TUA Orphanage',
-        'subtitle':
-            'Thank you, I hop your help is useful for others, We are always open...',
-        'imagePath': 'assets/images/inbox/image3.png',
-        'time': DateTime.now().subtract(Duration(hours: 10)),
-      },
-    ];
-
+    List<Map<String, dynamic>> notificationItems = notificationsData;
     return Scaffold(
       body: Container(
         padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
@@ -46,16 +24,16 @@ class NotificationPage extends StatelessWidget {
             const SizedBox(height: 20),
             Expanded(
               child: ListView.builder(
-                itemCount: inboxItems.length,
+                itemCount: notificationItems.length,
                 itemBuilder: (BuildContext context, int index) {
                   return Column(
                     children: [
                       Container(
-                        margin: EdgeInsets.fromLTRB(10, 0, 0, 0),
+                        margin: const EdgeInsets.fromLTRB(10, 0, 0, 0),
                         alignment: Alignment.topLeft,
                         child: Text(
                           DateFormat('EEEE, MMM d, yyyy')
-                              .format(inboxItems[index]['time']),
+                              .format(notificationItems[index]['time']),
                           style: TextStyle(
                             fontWeight: FontWeight.w400,
                             fontSize: 14,
@@ -65,16 +43,16 @@ class NotificationPage extends StatelessWidget {
                       ),
                       ListTile(
                         contentPadding: const EdgeInsets.fromLTRB(0, 10, 0, 10),
-                        leading: Image.asset(inboxItems[index]['imagePath']),
+                        leading: Image.asset(notificationItems[index]['imagePath']),
                         title: Text(
-                          inboxItems[index]['title'],
+                          notificationItems[index]['title'],
                           style: const TextStyle(
                             fontSize: 16,
                             fontWeight: FontWeight.w500,
                           ),
                         ),
                         subtitle: Text(
-                          inboxItems[index]['subtitle'],
+                          notificationItems[index]['subtitle'],
                           style: const TextStyle(
                             fontSize: 14,
                             fontWeight: FontWeight.w400,
@@ -90,14 +68,14 @@ class NotificationPage extends StatelessWidget {
                         alignment: Alignment.topLeft,
                         child: Text(
                           DateFormat('hh:mm a')
-                              .format(inboxItems[index]['time']),
+                              .format(notificationItems[index]['time']),
                           style: const TextStyle(
                             fontWeight: FontWeight.w400,
                             fontSize: 14,
                           ),
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 10,
                       )
                     ],
